@@ -1,0 +1,966 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>taipanPyRouter &#8212; Taipan Router  documentation</title>
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Taipan Router  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for taipanPyRouter</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">plotter</span>
+<span class="kn">import</span> <span class="nn">pylab</span> <span class="k">as</span> <span class="nn">plt</span> 
+<span class="kn">import</span> <span class="nn">constants</span> <span class="k">as</span> <span class="nn">const</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="k">import</span> <span class="n">distance</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="k">import</span> <span class="n">linear_sum_assignment</span>
+<span class="kn">from</span> <span class="nn">shapely.geometry.linestring</span> <span class="k">import</span> <span class="n">LineString</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os.path</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="c1">#avoid warning from NaNs and infs</span>
+<span class="n">np</span><span class="o">.</span><span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+
+<span class="n">bugStatusDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ONLINE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="s1">&#39;BROKEN&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+                 <span class="s1">&#39;INACTIVE&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+                 <span class="s1">&#39;NOT_PRESENT&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+
+
+<span class="c1">#Dictionary of bug types. None defaults to SCIENCE </span>
+<span class="n">bugTypeDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;GUIDE&#39;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+               <span class="s1">&#39;SKY&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+               <span class="s1">&#39;SCIENCE&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+               <span class="s1">&#39;None&#39;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">}</span> 
+
+<span class="n">bugRoutingDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;DIRECT&#39;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                  <span class="s1">&#39;SEQUENCE&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                  <span class="s1">&#39;UNROUTABLE&#39;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                  <span class="s1">&#39;NO_TARGET&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                  <span class="s1">&#39;INVALID_TARGET&#39;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                  <span class="s1">&#39;NONE&#39;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;TaipaPyRouter&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="loadParkPosJSON"><a class="viewcode-back" href="../reference.html#taipanPyRouter.loadParkPosJSON">[docs]</a><span class="k">def</span> <span class="nf">loadParkPosJSON</span><span class="p">(</span> <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;locationProperties.json&#39;</span><span class="p">,</span> <span class="n">folder</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="p">):</span>   
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Reads the park position file</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        filename (str) : The name of the input file</span>
+<span class="sd">        folder (str) : The location of the input file</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        parkPos (np.ndarray) : 2D - [[x],[y]] parked positions coordinates indexed by LemoId-1 </span>
+<span class="sd">        bugStatus (np.ndarray) : 1D [status] bugStatus indexed by LemoId-1</span>
+<span class="sd">        bugTypes (np.ndarray) : 1D [types] bugTypes indexed by LemoId-1</span>
+<span class="sd">    </span>
+<span class="sd">    Note:</span>
+<span class="sd">        Currently hardcoded array size to 309 bugs</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">parkPos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">309</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="n">bugStatus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">309</span><span class="p">)</span>
+    <span class="n">bugTypes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">309</span><span class="p">)</span>
+    <span class="n">bugRouting</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">309</span><span class="p">)</span>
+    
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">dataAll</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+
+    <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">dataAll</span><span class="p">[</span><span class="s1">&#39;locationProperties&#39;</span><span class="p">]:</span> 
+        <span class="n">bugIdx</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;lemoID&#39;</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span> <span class="c1">#idx = bugID-1</span>
+        <span class="n">park</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;homePosition&#39;</span><span class="p">]</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">park</span><span class="p">[</span><span class="s1">&#39;xMicrons&#39;</span><span class="p">]</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">park</span><span class="p">[</span><span class="s1">&#39;yMicrons&#39;</span><span class="p">]</span> 
+        <span class="n">parkPos</span><span class="p">[</span><span class="n">bugIdx</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> 
+
+        <span class="c1">#populate bugTypes array</span>
+        <span class="n">bugTypes</span><span class="p">[</span><span class="n">bugIdx</span><span class="p">]</span> <span class="o">=</span> <span class="n">bugTypeDict</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;sbType&#39;</span><span class="p">])]</span>
+        
+        <span class="c1">#populate bugStatus array</span>
+        <span class="n">bugStatus</span><span class="p">[</span><span class="n">bugIdx</span><span class="p">]</span> <span class="o">=</span> <span class="n">bugStatusDict</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;sbState&#39;</span><span class="p">])]</span>
+
+        <span class="c1">#populate bugRouting array</span>
+        <span class="n">bugRouting</span><span class="p">[</span><span class="n">bugIdx</span><span class="p">]</span> <span class="o">=</span> <span class="n">bugRoutingDict</span><span class="p">[</span><span class="s1">&#39;NONE&#39;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">parkPos</span><span class="p">,</span> <span class="n">bugStatus</span><span class="p">,</span> <span class="n">bugTypes</span><span class="p">,</span> <span class="n">bugRouting</span></div>
+
+
+
+<div class="viewcode-block" id="openS2JSONTile"><a class="viewcode-back" href="../reference.html#taipanPyRouter.openS2JSONTile">[docs]</a><span class="k">def</span> <span class="nf">openS2JSONTile</span><span class="p">(</span><span class="n">fileName</span><span class="p">,</span> <span class="n">folder</span> <span class="o">=</span> <span class="s1">&#39;./jsonTiles_s2&#39;</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Reads the JSON file containing the target information (S2)</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        filename (str) : The name of the input file</span>
+<span class="sd">        folder (str) : The location of the input file</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        bugsXY (np.ndarray) : Bugs requested position [[x,y]] indexed by LemoId-1 </span>
+<span class="sd">        </span>
+<span class="sd">    Note:</span>
+<span class="sd">        - Currently hardcoded array size to 309,2</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">fileName</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+
+    <span class="n">bugsTargetXY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">309</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="n">bugTargetTypes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">309</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="n">reqGuideBugsIdx</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">reqScienceBugsIdx</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="c1">#Collects all found bug data</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">thisData</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;guideStars&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;sky&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;targets&#39;</span><span class="p">]]):</span>
+
+        <span class="k">for</span> <span class="n">thisBug</span> <span class="ow">in</span> <span class="n">thisData</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">reqGuideBugsIdx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thisBug</span><span class="p">[</span><span class="s1">&#39;sbID&#39;</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">reqScienceBugsIdx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thisBug</span><span class="p">[</span><span class="s1">&#39;sbID&#39;</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            
+            <span class="n">bugsTargetXY</span><span class="p">[</span><span class="n">thisBug</span><span class="p">[</span><span class="s1">&#39;sbID&#39;</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">thisBug</span><span class="p">[</span><span class="s1">&#39;xMicrons&#39;</span><span class="p">],</span> <span class="n">thisBug</span><span class="p">[</span><span class="s1">&#39;yMicrons&#39;</span><span class="p">]]</span>    
+            
+            <span class="n">bugTargetTypes</span><span class="p">[</span><span class="n">thisBug</span><span class="p">[</span><span class="s1">&#39;sbID&#39;</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> 
+
+
+    <span class="k">return</span> <span class="n">bugsTargetXY</span><span class="p">,</span> <span class="n">bugTargetTypes</span></div>
+
+
+<div class="viewcode-block" id="initialiseTickArray"><a class="viewcode-back" href="../reference.html#taipanPyRouter.initialiseTickArray">[docs]</a><span class="k">def</span> <span class="nf">initialiseTickArray</span><span class="p">(</span><span class="n">parkPos</span><span class="p">,</span> <span class="n">bugsTargetXY</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Creates a new tick array with 2 only ticks (direct path)</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        parkPos: array with the starting points</span>
+<span class="sd">        bugsTargetXY: array with the end points</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        tickArray: 3D np.array [lemoID-1, tick, coords] </span>
+
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="n">tickArray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">309</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="n">tickArray</span><span class="p">[:,</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">parkPos</span>
+    <span class="n">tickArray</span><span class="p">[:,</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">bugsTargetXY</span>
+         
+    <span class="k">return</span> <span class="n">tickArray</span></div>
+
+
+
+<div class="viewcode-block" id="checkValidTargets"><a class="viewcode-back" href="../reference.html#taipanPyRouter.checkValidTargets">[docs]</a><span class="k">def</span> <span class="nf">checkValidTargets</span><span class="p">(</span><span class="n">parkPos</span><span class="p">,</span> <span class="n">bugsTargetXY</span><span class="p">,</span> <span class="n">bugStatus</span><span class="p">,</span> <span class="n">bugRouting</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Checks that targets are:</span>
+<span class="sd">        - inside GFP</span>
+<span class="sd">        - inside patrol radius</span>
+<span class="sd">        - far enough from eachother</span>
+<span class="sd">        - far from static bugs</span>
+<span class="sd">        </span>
+<span class="sd">    Updates bugStatus accordingly</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        parkPos: array with the starting points</span>
+<span class="sd">        bugsTargetXY: array with the end points</span>
+<span class="sd">                </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Validating Targets&#39;</span><span class="p">)</span>
+    
+    <span class="c1">#The distance travelled by each bug. Should be inside patrol radius</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="p">((</span><span class="n">parkPos</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">bugsTargetXY</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">parkPos</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">bugsTargetXY</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+    <span class="nb">filter</span> <span class="o">=</span> <span class="n">R</span><span class="o">&gt;</span><span class="n">const</span><span class="o">.</span><span class="n">PATROL_RADIUS</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="nb">filter</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">strMsg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="nb">filter</span><span class="p">),</span> <span class="s1">&#39; bugs outside patrol radius.&#39;</span>
+        <span class="nb">print</span> <span class="n">strMsg</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">strMsg</span><span class="p">)</span>
+        <span class="n">bugStatus</span><span class="p">[</span><span class="nb">filter</span><span class="p">]</span> <span class="o">=</span> <span class="n">bugStatusDict</span><span class="p">[</span><span class="s1">&#39;INACTIVE&#39;</span><span class="p">]</span>
+        <span class="n">bugRouting</span><span class="p">[</span><span class="nb">filter</span><span class="p">]</span> <span class="o">=</span> <span class="n">bugRoutingDict</span><span class="p">[</span><span class="s1">&#39;INVALID_TARGET&#39;</span><span class="p">]</span>
+
+    <span class="c1">#The distance from the centre. Should be inside GFP</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="p">((</span><span class="n">bugsTargetXY</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">bugsTargetXY</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+    <span class="nb">filter</span> <span class="o">=</span> <span class="n">R</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">const</span><span class="o">.</span><span class="n">GFP_RADIUS</span><span class="o">-</span><span class="n">const</span><span class="o">.</span><span class="n">BUG_RADIUS</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="nb">filter</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">strMsg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="nb">filter</span><span class="p">),</span> <span class="s1">&#39; bugs outside GFP.&#39;</span>
+        <span class="nb">print</span> <span class="n">strMsg</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">strMsg</span><span class="p">)</span>
+        <span class="n">bugStatus</span><span class="p">[</span><span class="nb">filter</span><span class="p">]</span> <span class="o">=</span> <span class="n">bugStatusDict</span><span class="p">[</span><span class="s1">&#39;INACTIVE&#39;</span><span class="p">]</span>
+        <span class="n">bugRouting</span><span class="p">[</span><span class="nb">filter</span><span class="p">]</span> <span class="o">=</span> <span class="n">bugRoutingDict</span><span class="p">[</span><span class="s1">&#39;INVALID_TARGET&#39;</span><span class="p">]</span>
+    
+    <span class="c1">#Check for target crash</span>
+    <span class="n">bugsTargetXYTemp</span> <span class="o">=</span> <span class="n">bugsTargetXY</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">bugsTargetXYTemp</span><span class="p">[</span><span class="n">bugStatus</span><span class="o">==</span><span class="n">bugStatusDict</span><span class="p">[</span><span class="s1">&#39;INACTIVE&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">parkPos</span><span class="p">[</span><span class="n">bugStatus</span><span class="o">==</span> <span class="n">bugStatusDict</span><span class="p">[</span><span class="s1">&#39;INACTIVE&#39;</span><span class="p">]]</span> <span class="c1">#update with invalid targets so far</span>
+    
+    <span class="c1">#iteratively mark as invalid crashing bugs</span>
+    <span class="n">notFinished</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">totTooClose</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">notFinished</span><span class="o">==</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">nChanges</span> <span class="o">=</span> <span class="mi">0</span>       
+        <span class="n">R2d</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">cdist</span><span class="p">(</span><span class="n">bugsTargetXYTemp</span><span class="p">,</span> <span class="n">bugsTargetXYTemp</span><span class="p">,</span> <span class="s1">&#39;euclidean&#39;</span><span class="p">)</span>
+        <span class="n">tooCloseList</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">R2d</span><span class="o">&lt;</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">const</span><span class="o">.</span><span class="n">BUG_RADIUS</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">tooCloseList</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">tooCloseList</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">j</span><span class="p">:</span> 
+                <span class="n">nChanges</span><span class="o">+=</span><span class="mi">1</span>
+                <span class="n">totTooClose</span><span class="o">+=</span><span class="mi">2</span>
+                <span class="n">bugsTargetXYTemp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">parkPos</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">bugStatus</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span> <span class="n">bugStatusDict</span><span class="p">[</span><span class="s1">&#39;INACTIVE&#39;</span><span class="p">]</span> 
+                <span class="n">bugRouting</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">bugRoutingDict</span><span class="p">[</span><span class="s1">&#39;INVALID_TARGET&#39;</span><span class="p">]</span>
+                <span class="n">bugsTargetXYTemp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">parkPos</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                <span class="n">bugStatus</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span> <span class="n">bugStatusDict</span><span class="p">[</span><span class="s1">&#39;INACTIVE&#39;</span><span class="p">]</span>
+                <span class="n">bugRouting</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">bugRoutingDict</span><span class="p">[</span><span class="s1">&#39;INVALID_TARGET&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">nChanges</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="n">notFinished</span> <span class="o">=</span> <span class="kc">False</span>
+    
+    <span class="k">if</span> <span class="n">totTooClose</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">strMsg</span> <span class="o">=</span> <span class="n">totTooClose</span><span class="p">,</span> <span class="s1">&#39; bugs were too close to each other.&#39;</span>
+        <span class="nb">print</span> <span class="n">strMsg</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">strMsg</span><span class="p">)</span></div>
+
+
+
+
+        
+<div class="viewcode-block" id="findCrossingGroups"><a class="viewcode-back" href="../reference.html#taipanPyRouter.findCrossingGroups">[docs]</a><span class="k">def</span> <span class="nf">findCrossingGroups</span><span class="p">(</span><span class="n">tickArray</span><span class="p">,</span><span class="n">bugStatus</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Identify crossing groups within the direct paths</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        tickArray: array with the starting and ending points</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        crossingBugs: np.ndarray Collection of pairs of crossing bugs.  </span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="n">activeFilter</span> <span class="o">=</span> <span class="n">bugStatus</span><span class="o">!=</span><span class="n">bugStatusDict</span><span class="p">[</span><span class="s1">&#39;NOT_PRESENT&#39;</span><span class="p">]</span>
+    <span class="n">crossingBugs</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">thisBugIdx</span><span class="p">,</span> <span class="n">thisBug</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">tickArray</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="n">activeFilter</span><span class="p">],</span><span class="n">tickArray</span><span class="p">[</span><span class="n">activeFilter</span><span class="p">]):</span>
+        <span class="n">path1</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">(</span><span class="n">thisBug</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">otherBugIdx</span><span class="p">,</span> <span class="n">otherBug</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">tickArray</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="n">activeFilter</span><span class="p">],</span><span class="n">tickArray</span><span class="p">[</span><span class="n">activeFilter</span><span class="p">]):</span>
+    
+            <span class="k">if</span> <span class="n">thisBugIdx</span><span class="o">&gt;</span><span class="n">otherBugIdx</span><span class="p">:</span>
+                <span class="n">path2</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">(</span><span class="n">otherBug</span><span class="p">)</span>
+                <span class="n">dist</span> <span class="o">=</span> <span class="n">path1</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">path2</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">dist</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">*</span><span class="n">const</span><span class="o">.</span><span class="n">CORRIDOR_HALF_WIDTH</span><span class="p">:</span> 
+                    <span class="n">crossingBugs</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">thisBugIdx</span><span class="p">,</span><span class="n">otherBugIdx</span><span class="p">])</span>
+
+    <span class="n">crossingBugs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">crossingBugs</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">crossingBugs</span></div>
+
+
+<div class="viewcode-block" id="consolidateCGroups"><a class="viewcode-back" href="../reference.html#taipanPyRouter.consolidateCGroups">[docs]</a><span class="k">def</span> <span class="nf">consolidateCGroups</span><span class="p">(</span><span class="n">crossingBugs</span><span class="p">,</span> <span class="n">tickArray</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Takes all pairs that collide and groups them assigning a unique ID.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        crossingBugs: np.ndarray Collection of pairs of crossing bugs.  </span>
+<span class="sd">        tickArray: np.ndarray [lemoID-1, tick, coords] </span>
+<span class="sd">             </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+     
+    <span class="n">CGroups</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">tickArray</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>   
+      
+    <span class="k">for</span> <span class="n">thisPair</span> <span class="ow">in</span> <span class="n">crossingBugs</span><span class="p">:</span>
+        
+        <span class="n">newGroupId</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">CGroups</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+        
+        <span class="n">bug1</span><span class="p">,</span> <span class="n">bug2</span> <span class="o">=</span> <span class="n">thisPair</span>
+        
+        <span class="k">if</span> <span class="n">CGroups</span><span class="p">[</span><span class="n">bug1</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">bug1OldGroup</span> <span class="o">=</span> <span class="n">CGroups</span><span class="p">[</span><span class="n">bug1</span><span class="p">]</span>
+            <span class="n">CGroups</span><span class="p">[</span><span class="n">CGroups</span><span class="o">==</span><span class="n">bug1OldGroup</span><span class="p">]</span> <span class="o">=</span> <span class="n">newGroupId</span>
+        <span class="n">CGroups</span><span class="p">[</span><span class="n">bug1</span><span class="p">]</span> <span class="o">=</span> <span class="n">newGroupId</span>
+        
+        <span class="k">if</span> <span class="n">CGroups</span><span class="p">[</span><span class="n">bug2</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">bug2OldGroup</span> <span class="o">=</span> <span class="n">CGroups</span><span class="p">[</span><span class="n">bug2</span><span class="p">]</span>
+            <span class="n">CGroups</span><span class="p">[</span><span class="n">CGroups</span><span class="o">==</span><span class="n">bug2OldGroup</span><span class="p">]</span> <span class="o">=</span> <span class="n">newGroupId</span>
+        <span class="n">CGroups</span><span class="p">[</span><span class="n">bug2</span><span class="p">]</span> <span class="o">=</span> <span class="n">newGroupId</span>
+        
+    <span class="k">return</span> <span class="n">CGroups</span></div>
+
+
+<div class="viewcode-block" id="optimiseAllocation"><a class="viewcode-back" href="../reference.html#taipanPyRouter.optimiseAllocation">[docs]</a><span class="k">def</span> <span class="nf">optimiseAllocation</span><span class="p">(</span><span class="n">parkPos</span><span class="p">,</span> <span class="n">bugStatus</span><span class="p">,</span> <span class="n">bugTypes</span><span class="p">,</span> <span class="n">bugsTargetXY</span><span class="p">,</span> <span class="n">bugTargetTypes</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Minimise the cost matrix of distances between a set of parked positions and set of targets.</span>
+<span class="sd">     </span>
+<span class="sd">    - It assigns the best target positions based on minimum combined distance</span>
+<span class="sd">    - Only the positions in parkPos that can be allocated have actual values, the rest of the values are NaNs. </span>
+<span class="sd">    - This process allows the code to segment the allocation by fibre type</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        parkPos (np.ndarray) : Park position for all starbugs</span>
+<span class="sd">        bugsTargetXY (np.ndarray) : Target positions to be allocated</span>
+<span class="sd">     </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        newTargetsAlloc (np.ndarray) : Array of same shape of parkPos with the new allocations</span>
+<span class="sd">        </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="c1">#initialise output array</span>
+    <span class="n">newTargetsAlloc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">bugStatus</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    
+    <span class="c1">#Availability filter for all bugs</span>
+    <span class="n">availableFibresFilter</span> <span class="o">=</span> <span class="p">(</span><span class="n">bugStatus</span><span class="o">==</span><span class="n">bugStatusDict</span><span class="p">[</span><span class="s1">&#39;ONLINE&#39;</span><span class="p">])</span>
+
+
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    GUIDE bugs</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="c1"># Create a list of the available GUIDE bugs parked positions (sources)</span>
+    <span class="n">availableGuideBugsFilter</span> <span class="o">=</span> <span class="p">((</span><span class="n">bugTypes</span><span class="o">==</span><span class="n">bugTypeDict</span><span class="p">[</span><span class="s1">&#39;GUIDE&#39;</span><span class="p">])</span> <span class="o">&amp;</span> <span class="n">availableFibresFilter</span><span class="p">)</span>
+    <span class="n">sourcesIdx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">bugStatus</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="n">availableGuideBugsFilter</span><span class="p">]</span>
+    <span class="n">sources</span> <span class="o">=</span> <span class="n">parkPos</span><span class="p">[</span><span class="n">availableGuideBugsFilter</span><span class="p">]</span>   
+
+     <span class="c1">#Create a list of targets for GUIDE bugs (targets)</span>
+    <span class="n">tempBugsTargetXY</span> <span class="o">=</span> <span class="n">bugsTargetXY</span><span class="p">[</span><span class="n">bugTargetTypes</span><span class="o">==</span><span class="n">bugTypeDict</span><span class="p">[</span><span class="s1">&#39;GUIDE&#39;</span><span class="p">]]</span>
+    <span class="n">targets</span> <span class="o">=</span> <span class="n">tempBugsTargetXY</span>
+
+
+    <span class="c1">#Debug stuff</span>
+<span class="c1">#     sources = sources[6:7,:]   </span>
+<span class="c1">#     sources = np.delete(sources, 1,0)</span>
+<span class="c1">#     targets = np.delete(targets, 1,0)</span>
+<span class="c1">#     targets = targets[3:4,:]</span>
+
+   
+    <span class="c1">#create cost matrix</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">cdist</span><span class="p">(</span><span class="n">sources</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
+    
+    <span class="c1">#assign based on min cost</span>
+    <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">linear_sum_assignment</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+    
+    <span class="c1">#transfer first batch</span>
+    <span class="n">newTargetsAlloc</span><span class="p">[</span><span class="n">sourcesIdx</span><span class="p">[</span><span class="n">rows</span><span class="p">]]</span> <span class="o">=</span> <span class="n">targets</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
+    
+    
+    
+    
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    SCIENCE and SKY bugs</span>
+<span class="sd">    &#39;&#39;&#39;</span>   
+    
+    <span class="c1">#Create a list of available SCIENCE and SKY bugs park positions (sources)</span>
+    <span class="n">ScienceAndSkyFibresFilter</span> <span class="o">=</span> <span class="p">((</span><span class="n">bugTargetTypes</span><span class="o">==</span><span class="n">bugTypeDict</span><span class="p">[</span><span class="s1">&#39;SCIENCE&#39;</span><span class="p">])</span> <span class="o">|</span> <span class="p">(</span><span class="n">bugTargetTypes</span><span class="o">==</span><span class="n">bugTypeDict</span><span class="p">[</span><span class="s1">&#39;SKY&#39;</span><span class="p">]))</span>
+    <span class="n">availableScienceAndSkyFibresFilter</span> <span class="o">=</span> <span class="p">(</span><span class="n">ScienceAndSkyFibresFilter</span> <span class="o">&amp;</span> <span class="n">availableFibresFilter</span><span class="p">)</span>
+    <span class="n">sourcesIdx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">bugStatus</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="n">availableScienceAndSkyFibresFilter</span><span class="p">]</span>
+    <span class="n">sources</span> <span class="o">=</span> <span class="n">parkPos</span><span class="p">[</span><span class="n">availableScienceAndSkyFibresFilter</span><span class="p">]</span>   
+
+    
+    <span class="c1">#Create a list of targets for SCIENCE and SKY bugs (targets)</span>
+    <span class="n">tempBugsTargetXY</span> <span class="o">=</span> <span class="n">bugsTargetXY</span><span class="p">[</span><span class="n">ScienceAndSkyFibresFilter</span><span class="p">]</span>
+    <span class="n">targets</span> <span class="o">=</span> <span class="n">tempBugsTargetXY</span>
+
+    
+    <span class="n">C</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">cdist</span><span class="p">(</span><span class="n">sources</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
+    
+    <span class="c1">#assign based on min cost</span>
+    <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">linear_sum_assignment</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+    
+    <span class="c1">#transfer first batch</span>
+    <span class="n">newTargetsAlloc</span><span class="p">[</span><span class="n">sourcesIdx</span><span class="p">[</span><span class="n">rows</span><span class="p">]]</span> <span class="o">=</span> <span class="n">targets</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
+    
+
+    <span class="k">return</span> <span class="n">newTargetsAlloc</span></div>
+
+
+<div class="viewcode-block" id="CGroupSolver"><a class="viewcode-back" href="../reference.html#taipanPyRouter.CGroupSolver">[docs]</a><span class="k">class</span> <span class="nc">CGroupSolver</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Class to hold the crossing group solving funcitons.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">CGroup</span><span class="p">,</span><span class="n">tickArray</span><span class="p">):</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">CGroup</span> <span class="o">=</span> <span class="n">CGroup</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tickArray</span> <span class="o">=</span> <span class="n">tickArray</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eSegments</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">constructESegments</span><span class="p">(</span><span class="n">tickArray</span><span class="p">[</span><span class="n">CGroup</span><span class="p">,:</span><span class="mi">2</span><span class="p">,:])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">C</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">constructCMatrix</span><span class="p">()</span>
+    
+<div class="viewcode-block" id="CGroupSolver.constructESegments"><a class="viewcode-back" href="../reference.html#taipanPyRouter.CGroupSolver.constructESegments">[docs]</a>    <span class="k">def</span> <span class="nf">constructESegments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">XYs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Constructs a list of all ESegments in the CGroup. </span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            XYs (np.ndarray): List of coordinates of the end points of each ESegment</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            list: List of ESegments</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="n">eSegments</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">s</span><span class="p">,</span><span class="n">e</span> <span class="ow">in</span> <span class="n">XYs</span><span class="p">:</span>
+            
+            <span class="n">thisESegment</span> <span class="o">=</span> <span class="n">ESegment</span><span class="p">([</span><span class="n">s</span><span class="p">,</span><span class="n">e</span><span class="p">])</span>
+            <span class="n">eSegments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thisESegment</span><span class="p">)</span>
+        
+
+        <span class="k">return</span> <span class="n">eSegments</span></div>
+  
+
+<div class="viewcode-block" id="CGroupSolver.calcCoeffs"><a class="viewcode-back" href="../reference.html#taipanPyRouter.CGroupSolver.calcCoeffs">[docs]</a>    <span class="k">def</span> <span class="nf">calcCoeffs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Calculates the collision coefficients.</span>
+<span class="sd">        </span>
+<span class="sd">        - Given 2 ESegments, it returns the coefficients of the collision points.</span>
+<span class="sd">        - If the ESegments are parallel, it returns NaNs</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            A (ESegment) : First segment to compare.</span>
+<span class="sd">            B (ESegment) : Second segment to compare.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Tuple: Pair of coefficients</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="n">aNumerator</span> <span class="o">=</span> <span class="p">((</span><span class="n">B</span><span class="o">.</span><span class="n">Xe</span><span class="o">-</span><span class="n">B</span><span class="o">.</span><span class="n">Xs</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">Ys</span><span class="o">-</span><span class="n">B</span><span class="o">.</span><span class="n">Ys</span><span class="p">))</span><span class="o">-</span><span class="p">((</span><span class="n">B</span><span class="o">.</span><span class="n">Ye</span><span class="o">-</span><span class="n">B</span><span class="o">.</span><span class="n">Ys</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">Xs</span><span class="o">-</span><span class="n">B</span><span class="o">.</span><span class="n">Xs</span><span class="p">))</span>
+        <span class="n">bNumerator</span> <span class="o">=</span> <span class="p">((</span><span class="n">A</span><span class="o">.</span><span class="n">Xe</span><span class="o">-</span><span class="n">A</span><span class="o">.</span><span class="n">Xs</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">Ys</span><span class="o">-</span><span class="n">B</span><span class="o">.</span><span class="n">Ys</span><span class="p">))</span><span class="o">-</span><span class="p">((</span><span class="n">A</span><span class="o">.</span><span class="n">Ye</span><span class="o">-</span><span class="n">A</span><span class="o">.</span><span class="n">Ys</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">Xs</span><span class="o">-</span><span class="n">B</span><span class="o">.</span><span class="n">Xs</span><span class="p">))</span>
+        <span class="n">denominator</span> <span class="o">=</span> <span class="p">((</span><span class="n">B</span><span class="o">.</span><span class="n">Ye</span><span class="o">-</span><span class="n">B</span><span class="o">.</span><span class="n">Ys</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">Xe</span><span class="o">-</span><span class="n">A</span><span class="o">.</span><span class="n">Xs</span><span class="p">))</span><span class="o">-</span><span class="p">((</span><span class="n">B</span><span class="o">.</span><span class="n">Xe</span><span class="o">-</span><span class="n">B</span><span class="o">.</span><span class="n">Xs</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">Ye</span><span class="o">-</span><span class="n">A</span><span class="o">.</span><span class="n">Ys</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">denominator</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">coeffA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+            <span class="n">coeffB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">coeffA</span> <span class="o">=</span> <span class="n">aNumerator</span><span class="o">/</span><span class="n">denominator</span>
+            <span class="n">coeffB</span> <span class="o">=</span> <span class="n">bNumerator</span><span class="o">/</span><span class="n">denominator</span>
+
+        <span class="k">return</span> <span class="n">coeffA</span><span class="p">,</span> <span class="n">coeffB</span></div>
+
+    
+<div class="viewcode-block" id="CGroupSolver.constructCMatrix"><a class="viewcode-back" href="../reference.html#taipanPyRouter.CGroupSolver.constructCMatrix">[docs]</a>    <span class="k">def</span> <span class="nf">constructCMatrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Creates a distance matrix for all segments in the crossing group</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">nESegments</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">eSegments</span><span class="p">)</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">nESegments</span><span class="p">,</span><span class="n">nESegments</span><span class="p">))</span><span class="o">*</span><span class="mf">1e9</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">thisESegment</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">eSegments</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">otherESegment</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">eSegments</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="n">j</span><span class="p">:</span>
+                    <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">],</span> <span class="n">C</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">calcCoeffs</span><span class="p">(</span><span class="n">thisESegment</span><span class="p">,</span> <span class="n">otherESegment</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">C</span></div>
+    
+<div class="viewcode-block" id="CGroupSolver.findMovingSequence"><a class="viewcode-back" href="../reference.html#taipanPyRouter.CGroupSolver.findMovingSequence">[docs]</a>    <span class="k">def</span> <span class="nf">findMovingSequence</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Analyses the cost matrix to find the sequence of motion that doesn&#39;t crash.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">C</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CGroup</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+
+            <span class="n">minR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">a</span><span class="p">))[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CGroup</span><span class="p">[</span><span class="n">minR</span><span class="p">])</span>
+            <span class="n">a</span><span class="p">[</span><span class="n">minR</span><span class="p">,:]</span> <span class="o">=</span> <span class="mf">1e9</span>
+      
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div></div>
+
+        
+        
+<div class="viewcode-block" id="ESegment"><a class="viewcode-back" href="../reference.html#taipanPyRouter.ESegment">[docs]</a><span class="k">class</span> <span class="nc">ESegment</span><span class="p">(</span><span class="n">LineString</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Class to extend the existing Linestring class into E(xtended)Segments.</span>
+<span class="sd">    </span>
+<span class="sd">    ESegments provide extra elements that apply to route solving</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">XYs</span><span class="p">):</span>
+        
+        <span class="n">LineString</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">XYs</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">Xs</span> <span class="o">=</span> <span class="n">XYs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Xe</span> <span class="o">=</span> <span class="n">XYs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Xe</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">Xs</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">Ys</span> <span class="o">=</span> <span class="n">XYs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Ye</span> <span class="o">=</span> <span class="n">XYs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Ye</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">Ys</span>
+
+
+<div class="viewcode-block" id="ESegment.pointFromCoeff"><a class="viewcode-back" href="../reference.html#taipanPyRouter.ESegment.pointFromCoeff">[docs]</a>    <span class="k">def</span> <span class="nf">pointFromCoeff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coeff</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Calculates a projected point from a given coefficient. </span>
+<span class="sd">        </span>
+<span class="sd">        The resulting point is in the position coeff*length, where length is </span>
+<span class="sd">        the length of the ESegment. </span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            coeff (float) : Distance to the requested point in ESegment lengths. Can be negative.</span>
+<span class="sd">            </span>
+<span class="sd">        Return:</span>
+<span class="sd">            Tuple: Position of the point. </span>
+<span class="sd">        &#39;&#39;&#39;</span>        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Xs</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">dx</span><span class="o">*</span><span class="n">coeff</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Ys</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">dy</span><span class="o">*</span><span class="n">coeff</span> </div></div>
+
+
+
+<div class="viewcode-block" id="shiftTickArray"><a class="viewcode-back" href="../reference.html#taipanPyRouter.shiftTickArray">[docs]</a><span class="k">def</span> <span class="nf">shiftTickArray</span><span class="p">(</span><span class="n">movSeq</span><span class="p">,</span> <span class="n">tickArray</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Given a sequence of bugIds, it creates the ticks to move bugs sequentially</span>
+<span class="sd">    </span>
+<span class="sd">    - It reshapes tickArray as needed. [nBugs, len(movSeq)+1, 2]</span>
+<span class="sd">    - It cascades the motion of the corresponding bugs sequentially as per movSeq order</span>
+<span class="sd">    - It completes preceding ticks with initial tick pos for movSeq bugs</span>
+<span class="sd">    - It adds target position to all tick following motion</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        movSeq (np.ndarray) : List of bugIds to be moved in sequential order.</span>
+<span class="sd">        tickArray (np.ndarray) : Tick array to be appended with sequential motion </span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray: Shifted TickArray.</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="n">initialNTicks</span> <span class="o">=</span> <span class="n">tickArray</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">newNTicks</span> <span class="o">=</span> <span class="n">movSeq</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span>
+    
+    <span class="c1">#Do we need to increase size? </span>
+    <span class="k">if</span> <span class="n">initialNTicks</span><span class="o">&lt;</span><span class="n">newNTicks</span><span class="p">:</span>
+        <span class="n">newShape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tickArray</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="n">newShape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">newNTicks</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">newShape</span> <span class="o">=</span> <span class="n">tickArray</span><span class="o">.</span><span class="n">shape</span>
+
+    <span class="n">tempTickArray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">newShape</span><span class="p">)</span>
+    <span class="c1">#fill up existing data</span>
+    <span class="n">tempTickArray</span><span class="p">[:,:</span><span class="n">initialNTicks</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">tickArray</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    
+    <span class="c1">#Complete remaining columns with final position</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">initialNTicks</span><span class="p">,</span><span class="n">newNTicks</span><span class="p">):</span>
+        <span class="n">tempTickArray</span><span class="p">[:,</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">tempTickArray</span><span class="p">[:,</span><span class="n">initialNTicks</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span>
+    
+    <span class="c1">#Complete remaining columns with final position</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">thisBugId</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">movSeq</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+                <span class="n">tempTickArray</span><span class="p">[</span><span class="n">thisBugId</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">tempTickArray</span><span class="p">[</span><span class="n">thisBugId</span><span class="p">,</span><span class="n">j</span><span class="p">,:]</span>
+
+    <span class="k">return</span> <span class="n">tempTickArray</span></div>
+
+
+<div class="viewcode-block" id="checkForCollisions"><a class="viewcode-back" href="../reference.html#taipanPyRouter.checkForCollisions">[docs]</a><span class="k">def</span> <span class="nf">checkForCollisions</span><span class="p">(</span><span class="n">tickArray</span><span class="p">,</span> <span class="n">bugStatus</span><span class="p">,</span> <span class="n">booPrint</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Looks for collisions in the created tick array.</span>
+<span class="sd">    </span>
+<span class="sd">    - Steps through the tickArray 1 tick at the time.</span>
+<span class="sd">    - Tries to re-create the crossing groups to look for crossings</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        tickArray (np.ndarray) : Array with the routing solution</span>
+<span class="sd">        bugStatus (np.ndarray) : Status of the bugs</span>
+<span class="sd">        </span>
+<span class="sd">    Returns: </span>
+<span class="sd">        boolean : True if collisions found. </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tickArray</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        
+        <span class="c1">#slice into single tick</span>
+        <span class="n">tempTickArray</span> <span class="o">=</span> <span class="n">tickArray</span><span class="p">[:,</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">,:]</span>
+        
+        <span class="c1">#Create crossing group array</span>
+        <span class="n">tempCGroups</span> <span class="o">=</span> <span class="n">findCrossingGroups</span><span class="p">(</span><span class="n">tempTickArray</span><span class="p">,</span> <span class="n">bugStatus</span><span class="p">)</span>    
+        <span class="n">CGroups</span> <span class="o">=</span> <span class="n">consolidateCGroups</span><span class="p">(</span><span class="n">tempCGroups</span><span class="p">,</span> <span class="n">tempTickArray</span><span class="p">)</span>
+        
+
+        
+        <span class="c1">#output the CGroups for reference</span>
+        <span class="k">if</span> <span class="n">booPrint</span><span class="p">:</span> <span class="nb">print</span> 
+        <span class="k">if</span> <span class="n">booPrint</span><span class="p">:</span> <span class="nb">print</span> <span class="s1">&#39;Collision Report tick&#39;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+        
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">CGroups</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">j</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">booPrint</span><span class="p">:</span> <span class="nb">print</span> <span class="s1">&#39;Number of bugs not colliding: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">CGroups</span><span class="o">==</span><span class="n">j</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">if</span> <span class="n">booPrint</span><span class="p">:</span> <span class="nb">print</span> <span class="s1">&#39;CGroup&#39;</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">j</span><span class="p">),</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">CGroups</span><span class="o">==</span><span class="n">j</span><span class="p">),</span> <span class="s1">&#39;collisions.&#39;</span> 
+                
+    <span class="k">return</span> <span class="n">result</span></div>
+   
+
+
+<div class="viewcode-block" id="writeOuputFile"><a class="viewcode-back" href="../reference.html#taipanPyRouter.writeOuputFile">[docs]</a><span class="k">def</span> <span class="nf">writeOuputFile</span><span class="p">(</span><span class="n">S2FileName</span><span class="p">,</span> <span class="n">S3FileName</span><span class="p">,</span> <span class="n">tickArray</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Writes an RTile (S3) from a tickArray</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        S2FileName (string) : Input XYTile</span>
+<span class="sd">        S3FileName (string) : Output RTile</span>
+<span class="sd">        tickArray (np.ndarray) : routing ticks array</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="c1">#Load S2</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./jsonTiles_s2/&#39;</span><span class="o">+</span><span class="n">S2FileName</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">inFile</span><span class="p">:</span>
+        <span class="n">S2data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">inFile</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+    
+    <span class="c1">#add tickArray data</span>
+    <span class="n">S3data</span> <span class="o">=</span> <span class="n">S2data</span>
+    <span class="n">S3data</span><span class="p">[</span><span class="s1">&#39;schemaID&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">3</span>
+    
+    <span class="n">ticks</span><span class="o">=</span><span class="p">{}</span>    
+    <span class="n">bugsWithoutNaNs</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tickArray</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))[:,</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">thisTickIdx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tickArray</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="n">thisTickData</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">thisBugIdx</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">tickArray</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="n">bugsWithoutNaNs</span><span class="p">]:</span>
+            
+            <span class="n">thisBugData</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">thisBugData</span><span class="p">[</span><span class="s1">&#39;lemoID&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">thisBugIdx</span><span class="o">+</span><span class="mi">1</span>
+            <span class="n">thisBugData</span><span class="p">[</span><span class="s1">&#39;xMicrons&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">tickArray</span><span class="p">[</span><span class="n">thisBugIdx</span><span class="p">,</span><span class="n">thisTickIdx</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">thisBugData</span><span class="p">[</span><span class="s1">&#39;yMicrons&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">tickArray</span><span class="p">[</span><span class="n">thisBugIdx</span><span class="p">,</span><span class="n">thisTickIdx</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+            
+            <span class="n">thisTickData</span><span class="p">[</span><span class="n">thisBugIdx</span><span class="p">]</span> <span class="o">=</span> <span class="n">thisBugData</span>
+
+        <span class="n">ticks</span><span class="p">[</span><span class="s1">&#39;Tick &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">thisTickIdx</span><span class="p">)]</span> <span class="o">=</span> <span class="n">thisTickData</span>
+            
+    <span class="n">S3data</span><span class="p">[</span><span class="s1">&#39;routes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ticks</span>
+
+    <span class="c1">#write S3</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">S3FileName</span> <span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outFile</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">S3data</span><span class="p">,</span> <span class="n">outFile</span><span class="p">)</span></div>
+
+    
+    
+
+
+<div class="viewcode-block" id="doRoutes"><a class="viewcode-back" href="../reference.html#taipanPyRouter.doRoutes">[docs]</a><span class="k">def</span> <span class="nf">doRoutes</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    
+    <span class="c1">#Initialise logging module </span>
+    <span class="k">if</span> <span class="n">logger</span><span class="o">.</span><span class="n">handlers</span><span class="o">==</span><span class="p">[]:</span>
+        <span class="n">hdlr</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s1">&#39;temp.log&#39;</span><span class="p">)</span>
+        <span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(name)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">hdlr</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">hdlr</span><span class="p">)</span> 
+        <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Module loading started&#39;</span><span class="p">)</span>
+
+    <span class="c1">#parse input filename and sanitise</span>
+    <span class="n">S2FileName</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">f</span>
+    <span class="k">if</span> <span class="n">S2FileName</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span> <span class="o">!=</span> <span class="s1">&#39;.json&#39;</span><span class="p">:</span> <span class="n">S2FileName</span> <span class="o">+=</span> <span class="s1">&#39;.json&#39;</span>
+    <span class="n">strMsg</span> <span class="o">=</span> <span class="s1">&#39;Input filename is &#39;</span> <span class="o">+</span> <span class="n">S2FileName</span>
+    <span class="nb">print</span> <span class="n">strMsg</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">strMsg</span><span class="p">)</span>       
+    
+    <span class="c1">#parse output filename and sanitise</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">o</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
+        <span class="n">S3FileName</span> <span class="o">=</span> <span class="s1">&#39;RTile_&#39;</span> <span class="o">+</span> <span class="n">S2FileName</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">S3FileName</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">o</span>
+    <span class="k">if</span> <span class="n">S3FileName</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span> <span class="o">!=</span> <span class="s1">&#39;.json&#39;</span><span class="p">:</span> <span class="n">S3FileName</span> <span class="o">+=</span> <span class="s1">&#39;.json&#39;</span>
+    <span class="n">strMsg</span> <span class="o">=</span> <span class="s1">&#39;Output filename is &#39;</span> <span class="o">+</span> <span class="n">S3FileName</span>
+    <span class="nb">print</span> <span class="n">strMsg</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">strMsg</span><span class="p">)</span>       
+        
+        
+
+
+
+    <span class="c1">#Check input file exisits</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s1">&#39;./jsonTiles_s2/&#39;</span><span class="o">+</span><span class="n">S2FileName</span><span class="p">):</span> 
+    
+        <span class="c1">#Load input files</span>
+        <span class="n">parkPos</span><span class="p">,</span> <span class="n">bugStatus</span><span class="p">,</span> <span class="n">bugTypes</span><span class="p">,</span> <span class="n">bugRouting</span> <span class="o">=</span> <span class="n">loadParkPosJSON</span><span class="p">()</span>
+<span class="c1">#         bugStatus = np.zeros(309) #Hack to make them all available ignoring input file info</span>
+
+
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Output parkPos info</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">strMsg</span> <span class="o">=</span> <span class="s1">&#39;Found &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">parkPos</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39; park positions.&#39;</span>
+        <span class="nb">print</span> <span class="n">strMsg</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">strMsg</span><span class="p">)</span>
+
+        <span class="n">unique</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">bugTypes</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="n">bugTypeDict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> 
+        <span class="n">values</span> <span class="o">=</span> <span class="n">bugTypeDict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+        <span class="n">strMsg</span> <span class="o">=</span> <span class="s1">&#39;Bugs Types:&#39;</span>
+        <span class="nb">print</span> <span class="n">strMsg</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">strMsg</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">idx</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unique</span><span class="p">):</span>
+            <span class="n">strMsg</span> <span class="o">=</span> <span class="n">keys</span><span class="p">[</span><span class="n">values</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">idx</span><span class="p">)],</span><span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  
+            <span class="nb">print</span> <span class="n">strMsg</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">strMsg</span><span class="p">)</span>
+
+        <span class="n">unique</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">bugStatus</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="n">bugStatusDict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> 
+        <span class="n">values</span> <span class="o">=</span> <span class="n">bugStatusDict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+        <span class="n">strMsg</span> <span class="o">=</span> <span class="s1">&#39;Bugs Status:&#39;</span>
+        <span class="nb">print</span> <span class="n">strMsg</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">strMsg</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">idx</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unique</span><span class="p">):</span>
+            <span class="n">strMsg</span> <span class="o">=</span> <span class="n">keys</span><span class="p">[</span><span class="n">values</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">idx</span><span class="p">)],</span> <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  
+            <span class="nb">print</span> <span class="n">strMsg</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">strMsg</span><span class="p">)</span>
+
+
+
+
+        <span class="c1">#Pretty plot of the park positions</span>
+<span class="c1">#         plotter.plot_park_pos(parkPos, bugTypes)</span>
+        
+        
+        
+        
+        
+        <span class="c1">#Load target positions and types</span>
+        <span class="n">bugsTargetXY</span><span class="p">,</span> <span class="n">bugTargetTypes</span> <span class="o">=</span> <span class="n">openS2JSONTile</span><span class="p">(</span><span class="n">S2FileName</span><span class="p">)</span>
+        
+        <span class="c1">#Minimise combined distance</span>
+        <span class="n">bugsTargetXY2</span> <span class="o">=</span> <span class="n">optimiseAllocation</span><span class="p">(</span><span class="n">parkPos</span><span class="p">,</span> <span class="n">bugStatus</span><span class="p">,</span> <span class="n">bugTypes</span><span class="p">,</span> <span class="n">bugsTargetXY</span><span class="p">,</span> <span class="n">bugTargetTypes</span><span class="p">)</span>
+        <span class="n">bugsTargetXY</span> <span class="o">=</span> <span class="n">bugsTargetXY2</span>
+        
+        <span class="c1">#hack to update bugStatus and bugRouting based on tile request</span>
+        <span class="n">bugStatus</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">bugsTargetXY</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])]</span><span class="o">=</span><span class="n">bugStatusDict</span><span class="p">[</span><span class="s1">&#39;NOT_PRESENT&#39;</span><span class="p">]</span>
+        <span class="n">bugStatus</span><span class="p">[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">bugsTargetXY</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])]</span><span class="o">=</span><span class="n">bugStatusDict</span><span class="p">[</span><span class="s1">&#39;ONLINE&#39;</span><span class="p">]</span>
+        <span class="n">bugRouting</span><span class="p">[</span><span class="n">bugStatus</span><span class="o">==</span><span class="n">bugStatusDict</span><span class="p">[</span><span class="s1">&#39;NOT_PRESENT&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">bugRoutingDict</span><span class="p">[</span><span class="s1">&#39;NO_TARGET&#39;</span><span class="p">]</span>
+        <span class="n">bugRouting</span><span class="p">[</span><span class="n">bugStatus</span><span class="o">!=</span><span class="n">bugStatusDict</span><span class="p">[</span><span class="s1">&#39;NOT_PRESENT&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">bugRoutingDict</span><span class="p">[</span><span class="s1">&#39;DIRECT&#39;</span><span class="p">]</span>
+        
+        <span class="c1">#Check for problems in the configuration</span>
+        <span class="n">checkValidTargets</span><span class="p">(</span><span class="n">parkPos</span><span class="p">,</span> <span class="n">bugsTargetXY</span><span class="p">,</span> <span class="n">bugStatus</span><span class="p">,</span> <span class="n">bugRouting</span><span class="p">)</span>
+        
+        <span class="c1">#Cancel motion for problem bugs</span>
+        <span class="n">bugsTargetXY</span><span class="p">[</span><span class="n">bugStatus</span><span class="o">==</span><span class="n">bugStatusDict</span><span class="p">[</span><span class="s1">&#39;INACTIVE&#39;</span><span class="p">]]</span><span class="o">=</span><span class="n">parkPos</span><span class="p">[</span><span class="n">bugStatus</span><span class="o">==</span><span class="n">bugStatusDict</span><span class="p">[</span><span class="s1">&#39;INACTIVE&#39;</span><span class="p">]]</span>
+              
+        <span class="c1">#Start the tick array with initial and final positions</span>
+        <span class="n">tickArray</span> <span class="o">=</span> <span class="n">initialiseTickArray</span><span class="p">(</span><span class="n">parkPos</span><span class="p">,</span> <span class="n">bugsTargetXY</span><span class="p">)</span>
+        <span class="n">initialTickArray</span> <span class="o">=</span> <span class="n">tickArray</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        
+        <span class="c1">#plot initial paths</span>
+<span class="c1">#         plotter.plot_this(tickArray, bugStatus, [], booShowBugs = True)</span>
+<span class="c1">#         plt.plot(0,0,&#39;b*&#39;, label=&#39;Targets&#39;)</span>
+<span class="c1">#         plt.plot(0,0,&#39;k&#39;, label=&#39;Path&#39;, alpha=0.5, linewidth=1)</span>
+<span class="c1">#         plt.title(&#39;Direct path allocations&#39;)</span>
+<span class="c1">#         plt.legend(loc=0)</span>
+<span class="c1">#         plt.show()</span>
+        
+        <span class="c1">#Create crossing group array</span>
+        <span class="n">tempCGroups</span> <span class="o">=</span> <span class="n">findCrossingGroups</span><span class="p">(</span><span class="n">tickArray</span><span class="p">,</span> <span class="n">bugStatus</span><span class="p">)</span>    
+        <span class="n">CGroups</span> <span class="o">=</span> <span class="n">consolidateCGroups</span><span class="p">(</span><span class="n">tempCGroups</span><span class="p">,</span> <span class="n">tickArray</span><span class="p">)</span>
+
+        <span class="c1">#Plot paths with groups</span>
+<span class="c1">#         plotter.plot_this(tickArray, bugStatus, CGroups, booShowBugs = True)</span>
+<span class="c1">#         plt.plot(0,0,&#39;k&#39;, label = &#39;Clear Direct Path&#39;, alpha = 0.7, linewidth = 7)</span>
+<span class="c1">#         plt.plot(0,0,&#39;y&#39;, label = &#39;Crossing Groups&#39;, alpha=0.5, linewidth = 7)</span>
+<span class="c1">#         plt.plot(0,0,&#39;b&#39;, label = &#39;Crossing Groups&#39;, alpha=0.5, linewidth = 7)</span>
+<span class="c1">#         plt.plot(0,0,&#39;r&#39;, label = &#39;Crossing Groups&#39;, alpha=0.5, linewidth = 7)</span>
+<span class="c1">#         plt.legend(loc=0, frameon=False, labelspacing=0.1, fontsize=&#39;small&#39;)</span>
+<span class="c1">#         plt.title(&#39;Crossing Groups Identification&#39;)</span>
+<span class="c1">#         plt.show()</span>
+
+
+        <span class="c1">#Solve the CGroups</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">CGroups</span><span class="p">):</span>
+            <span class="nb">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">CGroups</span><span class="o">==</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span> <span class="c1">#CGroup=0 is the non-crossing bugs</span>
+
+                <span class="n">CGroup</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">CGroups</span><span class="o">==</span><span class="n">i</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                
+                <span class="n">booCollisions</span> <span class="o">=</span> <span class="kc">True</span>
+                
+                <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">CGroups</span><span class="o">==</span><span class="n">i</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">:</span>
+
+                    <span class="n">booCollisions</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="k">for</span> <span class="n">thisSeq</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="n">CGroup</span><span class="p">))):</span>
+                    
+                        <span class="c1">#Temporary removed to try brute force</span>
+                        <span class="c1">#Instantiate the solver and find the moving sequence</span>
+    <span class="c1">#                     thisSolver = CGroupSolver(CGroup, tickArray)</span>
+    <span class="c1">#                     movSeq = thisSolver.findMovingSequence()</span>
+                         
+                        <span class="c1">#rebuild tick array with the new sequence</span>
+                        <span class="n">tempTickArray</span> <span class="o">=</span> <span class="n">shiftTickArray</span><span class="p">(</span><span class="n">thisSeq</span><span class="p">,</span> <span class="n">tickArray</span><span class="p">)</span>
+                    
+                        
+                        <span class="k">if</span> <span class="n">checkForCollisions</span><span class="p">(</span><span class="n">tempTickArray</span><span class="p">[</span><span class="n">CGroup</span><span class="p">,:,:],</span> <span class="n">bugStatus</span><span class="p">[</span><span class="n">CGroup</span><span class="p">],</span> <span class="kc">False</span><span class="p">):</span>
+                            <span class="n">booCollisions</span> <span class="o">=</span> <span class="kc">True</span>
+                            
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">booCollisions</span> <span class="o">=</span> <span class="kc">False</span>
+                            <span class="n">tickArray</span> <span class="o">=</span> <span class="n">tempTickArray</span>
+                            <span class="n">bugRouting</span><span class="p">[</span><span class="n">CGroup</span><span class="p">]</span> <span class="o">=</span> <span class="n">bugRoutingDict</span><span class="p">[</span><span class="s1">&#39;SEQUENCE&#39;</span><span class="p">]</span>
+                            <span class="k">break</span>
+
+                    
+                    
+                <span class="k">if</span> <span class="n">booCollisions</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
+                    
+                    <span class="nb">print</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;not solvable&#39;</span><span class="p">,</span> <span class="n">CGroup</span> <span class="c1"># do something else. Call it unsolvable...?</span>
+                    
+                    <span class="n">bugRouting</span><span class="p">[</span><span class="n">CGroup</span><span class="p">]</span> <span class="o">=</span> <span class="n">bugRoutingDict</span><span class="p">[</span><span class="s1">&#39;UNROUTABLE&#39;</span><span class="p">]</span>
+                    
+                    <span class="c1">#Copy intial position to all ticks (not moving)</span>
+                    <span class="n">tickArray</span><span class="p">[</span><span class="n">CGroup</span><span class="p">,</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">tickArray</span><span class="p">[</span><span class="n">CGroup</span><span class="p">,</span><span class="mi">0</span><span class="p">,:],</span><span class="n">tickArray</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),(</span><span class="nb">len</span><span class="p">(</span><span class="n">CGroup</span><span class="p">),</span><span class="n">tickArray</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+
+                    
+        <span class="c1">#Plot single tick    </span>
+<span class="c1">#         thisTick = 5</span>
+<span class="c1">#         plotter.plot_this(tickArray[:,thisTick:thisTick+2,:], bugStatus, CGroups, booShowBugs = True)</span>
+<span class="c1">#         plt.plot(0,0,&#39;k&#39;, label = &#39;S Direct Path&#39;, alpha = 0.7, linewidth = 7)</span>
+<span class="c1">#         plt.plot(0,0,&#39;y&#39;, label = &#39;Crossing Groups&#39;, alpha=0.5, linewidth = 7)</span>
+<span class="c1">#         plt.plot(0,0,&#39;b&#39;, label = &#39;Crossing Groups&#39;, alpha=0.5, linewidth = 7)</span>
+<span class="c1">#         plt.plot(0,0,&#39;r&#39;, label = &#39;Crossing Groups&#39;, alpha=0.5, linewidth = 7)</span>
+<span class="c1">#         plt.legend(loc=0, frameon=False, labelspacing=0.1, fontsize=&#39;small&#39;)</span>
+<span class="c1">#         plt.title(&#39;Single Step - Step &#39; + str(thisTick+1))</span>
+<span class="c1">#         plt.show()</span>
+
+
+        <span class="c1">#Plot paths with groups</span>
+<span class="c1">#         plotter.plot_this(tickArray, bugStatus, CGroups, booShowBugs = True)</span>
+<span class="c1">#         plt.plot(0,0,&#39;k&#39;, label = &#39;Clear Direct Path&#39;, alpha = 0.7, linewidth = 7)</span>
+<span class="c1">#         plt.plot(0,0,&#39;y&#39;, label = &#39;Crossing Groups&#39;, alpha=0.5, linewidth = 7)</span>
+<span class="c1">#         plt.plot(0,0,&#39;b&#39;, label = &#39;Crossing Groups&#39;, alpha=0.5, linewidth = 7)</span>
+<span class="c1">#         plt.plot(0,0,&#39;r&#39;, label = &#39;Crossing Groups&#39;, alpha=0.5, linewidth = 7)</span>
+<span class="c1">#         plt.legend(loc=0, frameon=False, labelspacing=0.1, fontsize=&#39;small&#39;)</span>
+<span class="c1">#         plt.title(&#39;Crossing Groups Identification&#39;)</span>
+<span class="c1">#         plt.show()</span>
+
+
+
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Finale</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">checkForCollisions</span><span class="p">(</span><span class="n">tickArray</span><span class="p">,</span> <span class="n">bugStatus</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Routes created with collisions.&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>         
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Routes created successfully.&#39;</span><span class="p">)</span>
+
+        <span class="n">writeOuputFile</span><span class="p">(</span><span class="n">S2FileName</span><span class="p">,</span> <span class="n">S3FileName</span><span class="p">,</span> <span class="n">tickArray</span><span class="p">)</span>
+        <span class="n">strMsg</span> <span class="o">=</span> <span class="s1">&#39;File &#39;</span> <span class="o">+</span> <span class="n">S3FileName</span> <span class="o">+</span> <span class="s1">&#39; written.&#39;</span>
+        <span class="nb">print</span> <span class="n">strMsg</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">strMsg</span><span class="p">)</span>
+
+<span class="c1">#     print &#39;bugRouting&#39;,bugRouting</span>
+        <span class="nb">print</span> <span class="s1">&#39;DIRECT:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">bugRouting</span> <span class="o">==</span><span class="n">bugRoutingDict</span><span class="p">[</span><span class="s1">&#39;DIRECT&#39;</span><span class="p">])</span>
+        <span class="nb">print</span> <span class="s1">&#39;SEQUENCE:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">bugRouting</span> <span class="o">==</span><span class="n">bugRoutingDict</span><span class="p">[</span><span class="s1">&#39;SEQUENCE&#39;</span><span class="p">])</span>
+        <span class="nb">print</span> <span class="s1">&#39;UNROUTABLE:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">bugRouting</span> <span class="o">==</span><span class="n">bugRoutingDict</span><span class="p">[</span><span class="s1">&#39;UNROUTABLE&#39;</span><span class="p">])</span>
+        <span class="nb">print</span> <span class="s1">&#39;NO_TARGET:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">bugRouting</span> <span class="o">==</span><span class="n">bugRoutingDict</span><span class="p">[</span><span class="s1">&#39;NO_TARGET&#39;</span><span class="p">])</span>
+        <span class="nb">print</span> <span class="s1">&#39;INVALID_TARGET:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">bugRouting</span> <span class="o">==</span><span class="n">bugRoutingDict</span><span class="p">[</span><span class="s1">&#39;INVALID_TARGET&#39;</span><span class="p">])</span>
+        <span class="nb">print</span> <span class="s1">&#39;NONE:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">bugRouting</span> <span class="o">==</span><span class="n">bugRoutingDict</span><span class="p">[</span><span class="s1">&#39;NONE&#39;</span><span class="p">])</span>
+        
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;End of Router&#39;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">bugRouting</span><span class="p">,</span> <span class="n">bugRoutingDict</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">strMsg</span> <span class="o">=</span> <span class="s1">&#39;File &#39;</span> <span class="o">+</span> <span class="n">S2FileName</span> <span class="o">+</span> <span class="s1">&#39; not found.&#39;</span>
+        <span class="nb">print</span> <span class="n">strMsg</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">strMsg</span><span class="p">)</span></div>
+        
+    
+
+
+
+
+<span class="c1">#####################################################################################        </span>
+<span class="c1">#Code starts here</span>
+<span class="c1">#####################################################################################</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+
+    <span class="c1">#arg parsing for command line version </span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;TaipanPyRouter. Produces a sequence of steps to move bugs from their park position to a target specified in a json (s2) file. It ouputs a Routed Tile (S3).&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Verbosity level (0-None, 5-Max).&#39;</span><span class="p">)</span>  
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Routed tile output file name (S3)&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;RTileFileNameS3.json&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-f&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Allocation target file (S2)&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;XYTileFileNameS2.json&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;s2_example.json&#39;</span><span class="p">)</span>
+<span class="c1">#     parser.add_argument(&#39;-fcsv&#39;, help=&#39;filename of the output csv file&#39;, default=&#39;out.csv&#39;)</span>
+<span class="c1">#     parser.add_argument(&#39;-fjson&#39;, help=&#39;filename of the output json file&#39;, default=&#39;out.json&#39;)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="nb">print</span> <span class="n">args</span>
+
+    <span class="n">doRoutes</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    
+    
+
+
+
+
+
+<span class="c1"># Ugly stuff under this vvvvvvvv</span>
+
+
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Taipan Router  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Carlos Bacigalupo.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+\begin{sphinxtheindex}
+\def\bigletter#1{{\Large\sffamily#1}\nopagebreak\vspace{1mm}}
+
+  \bigletter A
+  \item almost\_equals() (taipanPyRouter.ESegment method), \hyperpage{3}
+  \item area (taipanPyRouter.ESegment attribute), \hyperpage{3}
+  \item array\_interface() (taipanPyRouter.ESegment method), \hyperpage{4}
+  \item array\_interface\_base (taipanPyRouter.ESegment attribute), \hyperpage{4}
+
+  \indexspace
+  \bigletter B
+  \item boundary (taipanPyRouter.ESegment attribute), \hyperpage{4}
+  \item bounds (taipanPyRouter.ESegment attribute), \hyperpage{4}
+  \item buffer() (taipanPyRouter.ESegment method), \hyperpage{4}
+
+  \indexspace
+  \bigletter C
+  \item calcCoeffs() (taipanPyRouter.CGroupSolver method), \hyperpage{3}
+  \item centroid (taipanPyRouter.ESegment attribute), \hyperpage{4}
+  \item CGroupSolver (class in taipanPyRouter), \hyperpage{3}
+  \item checkForCollisions() (in module taipanPyRouter), \hyperpage{7}
+  \item checkValidGFPandCrash() (in module taipanPyRouter), \hyperpage{8}
+  \item checkValidTargets() (in module taipanPyRouter), \hyperpage{8}
+  \item checkValidTargetsPR() (in module taipanPyRouter), \hyperpage{8}
+  \item consolidateCGroups() (in module taipanPyRouter), \hyperpage{8}
+  \item constructCMatrix() (taipanPyRouter.CGroupSolver method), \hyperpage{3}
+  \item constructESegments() (taipanPyRouter.CGroupSolver method), \hyperpage{3}
+  \item contains() (taipanPyRouter.ESegment method), \hyperpage{4}
+  \item convex\_hull (taipanPyRouter.ESegment attribute), \hyperpage{4}
+  \item coords (taipanPyRouter.ESegment attribute), \hyperpage{4}
+  \item covers() (taipanPyRouter.ESegment method), \hyperpage{5}
+  \item createWorkingFolder() (in module taipanPyRouter), \hyperpage{8}
+  \item crosses() (taipanPyRouter.ESegment method), \hyperpage{5}
+  \item ctypes (taipanPyRouter.ESegment attribute), \hyperpage{5}
+
+  \indexspace
+  \bigletter D
+  \item difference() (taipanPyRouter.ESegment method), \hyperpage{5}
+  \item disjoint() (taipanPyRouter.ESegment method), \hyperpage{5}
+  \item distance() (taipanPyRouter.ESegment method), \hyperpage{5}
+  \item doRoutes() (in module taipanPyRouter), \hyperpage{8}
+
+  \indexspace
+  \bigletter E
+  \item empty() (taipanPyRouter.ESegment method), \hyperpage{5}
+  \item envelope (taipanPyRouter.ESegment attribute), \hyperpage{5}
+  \item equals() (taipanPyRouter.ESegment method), \hyperpage{5}
+  \item equals\_exact() (taipanPyRouter.ESegment method), \hyperpage{5}
+  \item ESegment (class in taipanPyRouter), \hyperpage{3}
+
+  \indexspace
+  \bigletter F
+  \item findCrossingGroups() (in module taipanPyRouter), \hyperpage{9}
+  \item findMovingSequence() (taipanPyRouter.CGroupSolver method), \hyperpage{3}
+  \item findMovingSequenceBF() (taipanPyRouter.CGroupSolver method), \hyperpage{3}
+
+  \indexspace
+  \bigletter G
+  \item geom\_type (taipanPyRouter.ESegment attribute), \hyperpage{5}
+  \item geometryType() (taipanPyRouter.ESegment method), \hyperpage{5}
+
+  \indexspace
+  \bigletter H
+  \item has\_z (taipanPyRouter.ESegment attribute), \hyperpage{5}
+  \item hausdorff\_distance() (taipanPyRouter.ESegment method), \hyperpage{5}
+
+  \indexspace
+  \bigletter I
+  \item impl (taipanPyRouter.ESegment attribute), \hyperpage{5}
+  \item initialiseTickArray() (in module taipanPyRouter), \hyperpage{9}
+  \item interpolate() (taipanPyRouter.ESegment method), \hyperpage{5}
+  \item intersection() (taipanPyRouter.ESegment method), \hyperpage{5}
+  \item intersects() (taipanPyRouter.ESegment method), \hyperpage{5}
+  \item is\_closed (taipanPyRouter.ESegment attribute), \hyperpage{5}
+  \item is\_empty (taipanPyRouter.ESegment attribute), \hyperpage{5}
+  \item is\_ring (taipanPyRouter.ESegment attribute), \hyperpage{6}
+  \item is\_simple (taipanPyRouter.ESegment attribute), \hyperpage{6}
+  \item is\_valid (taipanPyRouter.ESegment attribute), \hyperpage{6}
+
+  \indexspace
+  \bigletter L
+  \item length (taipanPyRouter.ESegment attribute), \hyperpage{6}
+  \item loadParkPosJSON() (in module taipanPyRouter), \hyperpage{9}
+
+  \indexspace
+  \bigletter M
+  \item minimum\_rotated\_rectangle (taipanPyRouter.ESegment attribute), \hyperpage{6}
+
+  \indexspace
+  \bigletter O
+  \item openS2JSONTile() (in module taipanPyRouter), \hyperpage{9}
+  \item optimiseAllocation() (in module taipanPyRouter), \hyperpage{9}
+  \item overlaps() (taipanPyRouter.ESegment method), \hyperpage{6}
+
+  \indexspace
+  \bigletter P
+  \item parallel\_offset() (taipanPyRouter.ESegment method), \hyperpage{6}
+  \item pointFromCoeff() (taipanPyRouter.ESegment method), \hyperpage{6}
+  \item project() (taipanPyRouter.ESegment method), \hyperpage{6}
+
+  \indexspace
+  \bigletter R
+  \item relate() (taipanPyRouter.ESegment method), \hyperpage{6}
+  \item relate\_pattern() (taipanPyRouter.ESegment method), \hyperpage{6}
+  \item representative\_point() (taipanPyRouter.ESegment method), \hyperpage{6}
+
+  \indexspace
+  \bigletter S
+  \item shiftTickArray() (in module taipanPyRouter), \hyperpage{10}
+  \item simplify() (taipanPyRouter.ESegment method), \hyperpage{6}
+  \item svg() (taipanPyRouter.ESegment method), \hyperpage{7}
+  \item symmetric\_difference() (taipanPyRouter.ESegment method), \hyperpage{7}
+
+  \indexspace
+  \bigletter T
+  \item taipanPyRouter (module), \hyperpage{3}
+  \item to\_wkb() (taipanPyRouter.ESegment method), \hyperpage{7}
+  \item to\_wkt() (taipanPyRouter.ESegment method), \hyperpage{7}
+  \item touches() (taipanPyRouter.ESegment method), \hyperpage{7}
+  \item type (taipanPyRouter.ESegment attribute), \hyperpage{7}
+
+  \indexspace
+  \bigletter U
+  \item union() (taipanPyRouter.ESegment method), \hyperpage{7}
+
+  \indexspace
+  \bigletter W
+  \item within() (taipanPyRouter.ESegment method), \hyperpage{7}
+  \item wkb (taipanPyRouter.ESegment attribute), \hyperpage{7}
+  \item wkb\_hex (taipanPyRouter.ESegment attribute), \hyperpage{7}
+  \item wkt (taipanPyRouter.ESegment attribute), \hyperpage{7}
+  \item writeOuputFile() (in module taipanPyRouter), \hyperpage{10}
+
+  \indexspace
+  \bigletter X
+  \item xy (taipanPyRouter.ESegment attribute), \hyperpage{7}
+
+\end{sphinxtheindex}

@@ -1,0 +1,78 @@
+\indexentry{taipanPyRouter (module)|hyperpage}{3}
+\indexentry{CGroupSolver (class in taipanPyRouter)|hyperpage}{3}
+\indexentry{calcCoeffs() (taipanPyRouter.CGroupSolver method)|hyperpage}{3}
+\indexentry{constructCMatrix() (taipanPyRouter.CGroupSolver method)|hyperpage}{3}
+\indexentry{constructESegments() (taipanPyRouter.CGroupSolver method)|hyperpage}{3}
+\indexentry{findMovingSequence() (taipanPyRouter.CGroupSolver method)|hyperpage}{3}
+\indexentry{findMovingSequenceBF() (taipanPyRouter.CGroupSolver method)|hyperpage}{3}
+\indexentry{ESegment (class in taipanPyRouter)|hyperpage}{3}
+\indexentry{almost\_equals() (taipanPyRouter.ESegment method)|hyperpage}{3}
+\indexentry{area (taipanPyRouter.ESegment attribute)|hyperpage}{3}
+\indexentry{array\_interface() (taipanPyRouter.ESegment method)|hyperpage}{4}
+\indexentry{array\_interface\_base (taipanPyRouter.ESegment attribute)|hyperpage}{4}
+\indexentry{boundary (taipanPyRouter.ESegment attribute)|hyperpage}{4}
+\indexentry{bounds (taipanPyRouter.ESegment attribute)|hyperpage}{4}
+\indexentry{buffer() (taipanPyRouter.ESegment method)|hyperpage}{4}
+\indexentry{centroid (taipanPyRouter.ESegment attribute)|hyperpage}{4}
+\indexentry{contains() (taipanPyRouter.ESegment method)|hyperpage}{4}
+\indexentry{convex\_hull (taipanPyRouter.ESegment attribute)|hyperpage}{4}
+\indexentry{coords (taipanPyRouter.ESegment attribute)|hyperpage}{4}
+\indexentry{covers() (taipanPyRouter.ESegment method)|hyperpage}{5}
+\indexentry{crosses() (taipanPyRouter.ESegment method)|hyperpage}{5}
+\indexentry{ctypes (taipanPyRouter.ESegment attribute)|hyperpage}{5}
+\indexentry{difference() (taipanPyRouter.ESegment method)|hyperpage}{5}
+\indexentry{disjoint() (taipanPyRouter.ESegment method)|hyperpage}{5}
+\indexentry{distance() (taipanPyRouter.ESegment method)|hyperpage}{5}
+\indexentry{empty() (taipanPyRouter.ESegment method)|hyperpage}{5}
+\indexentry{envelope (taipanPyRouter.ESegment attribute)|hyperpage}{5}
+\indexentry{equals() (taipanPyRouter.ESegment method)|hyperpage}{5}
+\indexentry{equals\_exact() (taipanPyRouter.ESegment method)|hyperpage}{5}
+\indexentry{geom\_type (taipanPyRouter.ESegment attribute)|hyperpage}{5}
+\indexentry{geometryType() (taipanPyRouter.ESegment method)|hyperpage}{5}
+\indexentry{has\_z (taipanPyRouter.ESegment attribute)|hyperpage}{5}
+\indexentry{hausdorff\_distance() (taipanPyRouter.ESegment method)|hyperpage}{5}
+\indexentry{impl (taipanPyRouter.ESegment attribute)|hyperpage}{5}
+\indexentry{interpolate() (taipanPyRouter.ESegment method)|hyperpage}{5}
+\indexentry{intersection() (taipanPyRouter.ESegment method)|hyperpage}{5}
+\indexentry{intersects() (taipanPyRouter.ESegment method)|hyperpage}{5}
+\indexentry{is\_closed (taipanPyRouter.ESegment attribute)|hyperpage}{5}
+\indexentry{is\_empty (taipanPyRouter.ESegment attribute)|hyperpage}{5}
+\indexentry{is\_ring (taipanPyRouter.ESegment attribute)|hyperpage}{6}
+\indexentry{is\_simple (taipanPyRouter.ESegment attribute)|hyperpage}{6}
+\indexentry{is\_valid (taipanPyRouter.ESegment attribute)|hyperpage}{6}
+\indexentry{length (taipanPyRouter.ESegment attribute)|hyperpage}{6}
+\indexentry{minimum\_rotated\_rectangle (taipanPyRouter.ESegment attribute)|hyperpage}{6}
+\indexentry{overlaps() (taipanPyRouter.ESegment method)|hyperpage}{6}
+\indexentry{parallel\_offset() (taipanPyRouter.ESegment method)|hyperpage}{6}
+\indexentry{pointFromCoeff() (taipanPyRouter.ESegment method)|hyperpage}{6}
+\indexentry{project() (taipanPyRouter.ESegment method)|hyperpage}{6}
+\indexentry{relate() (taipanPyRouter.ESegment method)|hyperpage}{6}
+\indexentry{relate\_pattern() (taipanPyRouter.ESegment method)|hyperpage}{6}
+\indexentry{representative\_point() (taipanPyRouter.ESegment method)|hyperpage}{6}
+\indexentry{simplify() (taipanPyRouter.ESegment method)|hyperpage}{6}
+\indexentry{svg() (taipanPyRouter.ESegment method)|hyperpage}{7}
+\indexentry{symmetric\_difference() (taipanPyRouter.ESegment method)|hyperpage}{7}
+\indexentry{to\_wkb() (taipanPyRouter.ESegment method)|hyperpage}{7}
+\indexentry{to\_wkt() (taipanPyRouter.ESegment method)|hyperpage}{7}
+\indexentry{touches() (taipanPyRouter.ESegment method)|hyperpage}{7}
+\indexentry{type (taipanPyRouter.ESegment attribute)|hyperpage}{7}
+\indexentry{union() (taipanPyRouter.ESegment method)|hyperpage}{7}
+\indexentry{within() (taipanPyRouter.ESegment method)|hyperpage}{7}
+\indexentry{wkb (taipanPyRouter.ESegment attribute)|hyperpage}{7}
+\indexentry{wkb\_hex (taipanPyRouter.ESegment attribute)|hyperpage}{7}
+\indexentry{wkt (taipanPyRouter.ESegment attribute)|hyperpage}{7}
+\indexentry{xy (taipanPyRouter.ESegment attribute)|hyperpage}{7}
+\indexentry{checkForCollisions() (in module taipanPyRouter)|hyperpage}{7}
+\indexentry{checkValidGFPandCrash() (in module taipanPyRouter)|hyperpage}{8}
+\indexentry{checkValidTargets() (in module taipanPyRouter)|hyperpage}{8}
+\indexentry{checkValidTargetsPR() (in module taipanPyRouter)|hyperpage}{8}
+\indexentry{consolidateCGroups() (in module taipanPyRouter)|hyperpage}{8}
+\indexentry{createWorkingFolder() (in module taipanPyRouter)|hyperpage}{8}
+\indexentry{doRoutes() (in module taipanPyRouter)|hyperpage}{8}
+\indexentry{findCrossingGroups() (in module taipanPyRouter)|hyperpage}{9}
+\indexentry{initialiseTickArray() (in module taipanPyRouter)|hyperpage}{9}
+\indexentry{loadParkPosJSON() (in module taipanPyRouter)|hyperpage}{9}
+\indexentry{openS2JSONTile() (in module taipanPyRouter)|hyperpage}{9}
+\indexentry{optimiseAllocation() (in module taipanPyRouter)|hyperpage}{9}
+\indexentry{shiftTickArray() (in module taipanPyRouter)|hyperpage}{10}
+\indexentry{writeOuputFile() (in module taipanPyRouter)|hyperpage}{10}

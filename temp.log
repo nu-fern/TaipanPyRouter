@@ -1,0 +1,1291 @@
+2018-08-06 09:42:10,523 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 09:42:10,526 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 09:42:10,527 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 09:42:13,400 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 09:42:13,400 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 09:42:13,401 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 09:42:13,401 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 09:42:13,401 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 09:42:13,402 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 09:42:13,402 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-06 09:42:13,402 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-06 09:42:20,344 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 09:42:20,345 - TaipaPyRouter - WARNING - (8, ' bugs outside GFP.')
+2018-08-06 09:42:20,347 - TaipaPyRouter - WARNING - ('Bugs', array([ 78, 112, 147, 155, 196, 280, 305]), ' were removed by having another target too close.')
+2018-08-06 09:49:17,571 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 09:49:17,574 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 09:49:17,574 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 09:49:20,316 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 09:49:20,317 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 09:49:20,317 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 09:49:20,318 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 09:49:20,318 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 09:49:20,318 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 09:49:20,319 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-06 09:49:20,319 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-06 09:49:27,083 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 09:49:27,084 - TaipaPyRouter - WARNING - (8, ' bugs outside GFP.')
+2018-08-06 09:49:27,086 - TaipaPyRouter - WARNING - ('Bugs', array([ 78, 112, 147, 155, 196, 280, 305]), ' were removed by having another target too close.')
+2018-08-06 10:03:56,250 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-06 10:03:56,470 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-06 10:03:56,471 - TaipaPyRouter - INFO - End of Router
+2018-08-06 10:10:54,247 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:10:54,249 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:10:54,249 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:10:55,593 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:10:55,594 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:10:55,594 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:10:55,594 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:10:55,594 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:10:55,594 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:10:55,594 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-06 10:10:55,594 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-06 10:10:57,029 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:10:57,029 - TaipaPyRouter - WARNING - (8, ' bugs outside GFP.')
+2018-08-06 10:10:57,030 - TaipaPyRouter - WARNING - ('Bugs', array([ 78, 112, 147, 155, 196, 280, 305]), ' were removed by having another target too close.')
+2018-08-06 10:11:34,597 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:11:34,599 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:11:34,599 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:11:35,888 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:11:35,888 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:11:35,888 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:11:35,889 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:11:35,889 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:11:35,889 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:11:35,889 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-06 10:11:35,889 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-06 10:11:37,156 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:11:37,156 - TaipaPyRouter - WARNING - (8, ' bugs outside GFP.')
+2018-08-06 10:11:37,158 - TaipaPyRouter - WARNING - ('Bugs', array([ 78, 112, 147, 155, 196, 280, 305]), ' were removed by having another target too close.')
+2018-08-06 10:11:44,833 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-06 10:11:44,844 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-06 10:11:44,845 - TaipaPyRouter - INFO - End of Router
+2018-08-06 10:11:44,845 - TaipaPyRouter - INFO - 
+2018-08-06 10:12:42,919 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:12:42,920 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:12:42,920 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:12:44,182 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:12:44,182 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:12:44,182 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:12:44,182 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:12:44,182 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:12:44,182 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:12:44,182 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-06 10:12:44,182 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-06 10:12:45,415 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:12:45,415 - TaipaPyRouter - WARNING - (8, ' bugs outside GFP.')
+2018-08-06 10:12:45,416 - TaipaPyRouter - WARNING - ('Bugs', array([ 78, 112, 147, 155, 196, 280, 305]), ' were removed by having another target too close.')
+2018-08-06 10:12:55,677 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-06 10:12:55,694 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-06 10:12:55,695 - TaipaPyRouter - INFO - End of Router
+2018-08-06 10:12:55,695 - TaipaPyRouter - INFO - 
+2018-08-06 10:16:53,556 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:16:53,558 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:16:53,558 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:16:54,874 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:16:54,875 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:16:54,875 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:16:54,875 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:16:54,875 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:16:54,875 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:16:54,875 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-06 10:16:54,875 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-06 10:16:56,183 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:16:56,183 - TaipaPyRouter - WARNING - (8, ' bugs outside GFP.')
+2018-08-06 10:16:56,184 - TaipaPyRouter - WARNING - ('Bugs', array([ 78, 112, 147, 155, 196, 280, 305]), ' were removed by having another target too close.')
+2018-08-06 10:17:06,075 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-06 10:17:06,087 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-06 10:17:06,089 - TaipaPyRouter - INFO - End of Router
+2018-08-06 10:17:06,089 - TaipaPyRouter - INFO - 
+2018-08-06 10:17:41,668 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:17:41,670 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:17:41,670 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:17:42,940 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:17:42,940 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:17:42,941 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:17:42,941 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:17:42,941 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:17:42,941 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:17:42,941 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-06 10:17:42,941 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-06 10:17:44,184 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:17:44,184 - TaipaPyRouter - WARNING - (8, ' bugs outside GFP.')
+2018-08-06 10:17:44,186 - TaipaPyRouter - WARNING - ('Bugs', array([ 78, 112, 147, 155, 196, 280, 305]), ' were removed by having another target too close.')
+2018-08-06 10:17:54,311 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-06 10:17:54,323 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-06 10:17:54,324 - TaipaPyRouter - INFO - End of Router
+2018-08-06 10:17:54,324 - TaipaPyRouter - INFO - 
+2018-08-06 10:18:31,578 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:18:31,580 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:18:31,580 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:18:32,854 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:18:32,855 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:18:32,855 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:18:32,855 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:18:32,855 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:18:32,855 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:18:32,855 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-06 10:18:32,855 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-06 10:18:34,115 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:18:34,115 - TaipaPyRouter - WARNING - (85, ' bugs outside GFP.')
+2018-08-06 10:18:34,117 - TaipaPyRouter - WARNING - ('Bugs', array([218, 224, 255, 288]), ' were removed by having another target too close.')
+2018-08-06 10:18:46,458 - TaipaPyRouter - WARNING - Routes created with collisions.
+2018-08-06 10:18:46,472 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-06 10:18:46,473 - TaipaPyRouter - INFO - End of Router
+2018-08-06 10:18:46,473 - TaipaPyRouter - INFO - 
+2018-08-06 10:20:44,658 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:20:44,659 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:20:44,659 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:20:45,898 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:20:45,899 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:20:45,899 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:20:45,899 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:20:45,899 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:20:45,899 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:20:45,899 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-06 10:20:45,899 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-06 10:20:47,147 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:20:47,148 - TaipaPyRouter - WARNING - (5, ' bugs outside GFP.')
+2018-08-06 10:20:47,149 - TaipaPyRouter - WARNING - ('Bugs', array([ 17,  54, 134, 174, 252, 264, 284, 285, 288]), ' were removed by having another target too close.')
+2018-08-06 10:20:55,524 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-06 10:20:55,535 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-06 10:20:55,535 - TaipaPyRouter - INFO - End of Router
+2018-08-06 10:20:55,535 - TaipaPyRouter - INFO - 
+2018-08-06 10:24:47,046 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:24:47,048 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:24:47,048 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:24:48,342 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:24:48,342 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:24:48,342 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:24:48,342 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:24:48,342 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:24:48,342 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:24:48,342 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-06 10:24:48,342 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-06 10:24:49,652 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:24:49,652 - TaipaPyRouter - WARNING - (5, ' bugs outside GFP.')
+2018-08-06 10:24:49,653 - TaipaPyRouter - WARNING - ('Bugs', array([ 17,  54, 134, 174, 252, 264, 284, 285, 288]), ' were removed by having another target too close.')
+2018-08-06 10:24:55,990 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:24:55,994 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:24:55,995 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:24:58,946 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:24:58,947 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:24:58,947 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:24:58,947 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:24:58,948 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:24:58,948 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:24:58,948 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-06 10:24:58,949 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-06 10:25:05,856 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:25:05,857 - TaipaPyRouter - WARNING - (5, ' bugs outside GFP.')
+2018-08-06 10:25:05,859 - TaipaPyRouter - WARNING - ('Bugs', array([ 17,  54, 134, 174, 252, 264, 284, 285, 288]), ' were removed by having another target too close.')
+2018-08-06 10:30:06,799 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:30:06,804 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:30:06,804 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:30:09,566 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:30:09,566 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:30:09,567 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:30:09,567 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:30:09,567 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:30:09,568 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:30:09,568 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-06 10:30:09,569 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-06 10:30:16,253 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:30:16,253 - TaipaPyRouter - WARNING - (5, ' bugs outside GFP.')
+2018-08-06 10:30:16,256 - TaipaPyRouter - WARNING - ('Bugs', array([ 17,  54, 134, 174, 252, 264, 284, 285, 288]), ' were removed by having another target too close.')
+2018-08-06 10:42:16,032 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:42:16,034 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:42:16,034 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:42:17,332 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:42:17,333 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:42:17,333 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:42:17,333 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:42:17,333 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:42:17,333 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:42:17,333 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-06 10:42:17,333 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-06 10:42:18,566 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:42:18,566 - TaipaPyRouter - WARNING - (5, ' bugs outside GFP.')
+2018-08-06 10:42:18,567 - TaipaPyRouter - WARNING - ('Bugs', array([ 17,  54, 134, 174, 252, 264, 284, 285, 288]), ' were removed by having another target too close.')
+2018-08-06 10:43:48,141 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:43:48,143 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:43:48,143 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:43:49,402 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:43:49,402 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:43:49,402 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:43:49,402 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:43:49,403 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:43:49,403 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:43:49,403 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-06 10:43:49,403 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-06 10:43:50,693 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:43:50,693 - TaipaPyRouter - WARNING - (5, ' bugs outside GFP.')
+2018-08-06 10:43:50,694 - TaipaPyRouter - WARNING - ('Bugs', array([ 17,  54, 134, 174, 252, 264, 284, 285, 288]), ' were removed by having another target too close.')
+2018-08-06 10:44:16,607 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:44:16,609 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:44:16,609 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:44:17,882 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:44:17,882 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:44:17,882 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:44:17,882 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:44:17,882 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:44:17,882 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:44:17,883 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-06 10:44:17,883 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-06 10:44:19,185 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:44:19,186 - TaipaPyRouter - WARNING - (5, ' bugs outside GFP.')
+2018-08-06 10:44:19,187 - TaipaPyRouter - WARNING - ('Bugs', array([ 17,  54, 134, 174, 252, 264, 284, 285, 288]), ' were removed by having another target too close.')
+2018-08-06 10:44:44,940 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:44:44,941 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:44:44,942 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:44:46,225 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:44:46,225 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:44:46,225 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:44:46,225 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:44:46,225 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:44:46,225 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:44:46,225 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-06 10:44:46,225 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-06 10:44:47,468 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:44:47,469 - TaipaPyRouter - WARNING - (5, ' bugs outside GFP.')
+2018-08-06 10:44:47,470 - TaipaPyRouter - WARNING - ('Bugs', array([ 17,  54, 134, 174, 252, 264, 284, 285, 288]), ' were removed by having another target too close.')
+2018-08-06 10:45:13,062 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:45:13,063 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:45:13,063 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:45:14,326 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:45:14,327 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:45:14,327 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:45:14,327 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:45:14,327 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:45:14,327 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:45:14,327 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-06 10:45:14,327 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-06 10:45:15,669 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:45:15,669 - TaipaPyRouter - WARNING - (5, ' bugs outside GFP.')
+2018-08-06 10:45:15,670 - TaipaPyRouter - WARNING - ('Bugs', array([ 17,  54, 134, 174, 252, 264, 284, 285, 288]), ' were removed by having another target too close.')
+2018-08-06 10:45:24,102 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-06 10:45:24,112 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-06 10:45:24,113 - TaipaPyRouter - INFO - End of Router
+2018-08-06 10:45:24,113 - TaipaPyRouter - INFO - 
+2018-08-06 10:46:45,400 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:46:45,402 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:46:45,402 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:46:46,663 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:46:46,663 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:46:46,663 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:46:46,663 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:46:46,663 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:46:46,663 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:46:46,664 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-06 10:46:46,664 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-06 10:46:47,926 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:46:47,927 - TaipaPyRouter - WARNING - (5, ' bugs outside GFP.')
+2018-08-06 10:46:47,928 - TaipaPyRouter - WARNING - ('Bugs', array([ 17,  54, 134, 174, 252, 264, 284, 285, 288]), ' were removed by having another target too close.')
+2018-08-06 10:46:56,085 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-06 10:46:56,094 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-06 10:46:56,095 - TaipaPyRouter - INFO - End of Router
+2018-08-06 10:46:56,095 - TaipaPyRouter - INFO - 
+2018-08-06 10:50:11,146 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:50:11,147 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:50:11,147 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:50:12,418 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:50:12,418 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:50:12,418 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:50:12,418 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:50:12,418 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:50:12,418 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:50:12,418 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-06 10:50:12,419 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-06 10:50:13,706 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:50:13,707 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-06 10:50:13,708 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-06 10:50:33,549 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-06 10:50:33,567 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-06 10:50:33,568 - TaipaPyRouter - INFO - End of Router
+2018-08-06 10:50:33,568 - TaipaPyRouter - INFO - 
+2018-08-06 10:57:38,443 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:57:38,444 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:57:38,444 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:57:39,607 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:57:39,607 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:57:39,607 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:57:39,607 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:57:39,607 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:57:39,607 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:57:39,607 - TaipaPyRouter - INFO - ('NOT_PRESENT', 309)
+2018-08-06 10:57:40,863 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:57:40,864 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-06 10:57:40,865 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-06 10:57:44,273 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-06 10:57:44,279 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-06 10:57:44,280 - TaipaPyRouter - INFO - End of Router
+2018-08-06 10:57:44,280 - TaipaPyRouter - INFO - 
+2018-08-06 10:58:15,652 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:58:15,654 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:58:15,654 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:58:17,682 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:58:17,683 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:58:17,683 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:58:17,683 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:58:17,683 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:58:17,683 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:58:17,683 - TaipaPyRouter - INFO - ('BROKEN', 309)
+2018-08-06 10:58:18,908 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:58:18,909 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-06 10:58:18,910 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-06 10:58:28,283 - TaipaPyRouter - WARNING - Routes created with collisions.
+2018-08-06 10:58:28,289 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-06 10:58:28,290 - TaipaPyRouter - INFO - End of Router
+2018-08-06 10:58:28,290 - TaipaPyRouter - INFO - 
+2018-08-06 10:59:06,430 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 10:59:06,432 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 10:59:06,433 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 10:59:08,546 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 10:59:08,546 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 10:59:08,547 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 10:59:08,547 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 10:59:08,547 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 10:59:08,547 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 10:59:08,547 - TaipaPyRouter - INFO - ('ONLINE', 309)
+2018-08-06 10:59:09,844 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 10:59:09,844 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-06 10:59:09,845 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-06 10:59:34,631 - TaipaPyRouter - WARNING - Routes created with collisions.
+2018-08-06 10:59:34,648 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-06 10:59:34,649 - TaipaPyRouter - INFO - End of Router
+2018-08-06 10:59:34,649 - TaipaPyRouter - INFO - 
+2018-08-06 11:00:28,073 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 11:00:28,074 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 11:00:28,074 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 11:00:49,706 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 11:00:49,708 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 11:00:49,708 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 11:01:00,118 - TaipaPyRouter - INFO - Module loading started
+2018-08-06 11:01:00,121 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-06 11:01:00,121 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-06 11:01:01,825 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-06 11:01:01,825 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-06 11:01:01,825 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-06 11:01:01,825 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-06 11:01:01,826 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-06 11:01:01,826 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-06 11:01:01,826 - TaipaPyRouter - INFO - ('ONLINE', 186)
+2018-08-06 11:01:01,826 - TaipaPyRouter - INFO - ('NOT_PRESENT', 123)
+2018-08-06 11:01:03,022 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-06 11:01:03,022 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-06 11:01:03,024 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-06 11:01:19,238 - TaipaPyRouter - WARNING - Routes created with collisions.
+2018-08-06 11:01:19,253 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-06 11:01:19,254 - TaipaPyRouter - INFO - End of Router
+2018-08-06 11:01:19,254 - TaipaPyRouter - INFO - 
+2018-08-07 08:44:53,558 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 08:44:53,561 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 08:44:53,561 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-07 08:44:55,559 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-07 08:44:55,559 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-07 08:44:55,559 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-07 08:44:55,560 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-07 08:44:55,560 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-07 08:44:55,560 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-07 08:44:55,560 - TaipaPyRouter - INFO - ('ONLINE', 186)
+2018-08-07 08:44:55,560 - TaipaPyRouter - INFO - ('NOT_PRESENT', 123)
+2018-08-07 08:44:56,778 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-07 08:44:56,778 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-07 08:44:56,779 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-07 08:44:58,147 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-07 08:44:58,147 - TaipaPyRouter - WARNING - (4, ' bugs outside patrol radius.')
+2018-08-07 08:45:13,018 - TaipaPyRouter - WARNING - Routes created with collisions.
+2018-08-07 08:45:13,032 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-07 08:45:13,033 - TaipaPyRouter - INFO - End of Router
+2018-08-07 08:45:13,033 - TaipaPyRouter - INFO - 
+2018-08-07 08:48:47,286 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 08:48:47,287 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 08:48:47,287 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-07 08:48:49,090 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-07 08:48:49,090 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-07 08:48:49,090 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-07 08:48:49,091 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-07 08:48:49,091 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-07 08:48:49,091 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-07 08:48:49,091 - TaipaPyRouter - INFO - ('ONLINE', 186)
+2018-08-07 08:48:49,091 - TaipaPyRouter - INFO - ('NOT_PRESENT', 123)
+2018-08-07 08:48:50,371 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-07 08:48:50,372 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-07 08:48:50,373 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-07 08:48:51,719 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-07 08:48:51,719 - TaipaPyRouter - WARNING - (4, ' bugs outside patrol radius.')
+2018-08-07 08:49:07,199 - TaipaPyRouter - WARNING - Routes created with collisions.
+2018-08-07 08:49:07,214 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-07 08:49:07,214 - TaipaPyRouter - INFO - End of Router
+2018-08-07 08:49:07,214 - TaipaPyRouter - INFO - 
+2018-08-07 08:54:43,979 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 08:54:43,980 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 08:54:43,980 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-07 08:54:45,714 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-07 08:54:45,714 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-07 08:54:45,714 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-07 08:54:45,715 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-07 08:54:45,715 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-07 08:54:45,715 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-07 08:54:45,715 - TaipaPyRouter - INFO - ('ONLINE', 186)
+2018-08-07 08:54:45,715 - TaipaPyRouter - INFO - ('NOT_PRESENT', 123)
+2018-08-07 08:54:46,946 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-07 08:54:46,946 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-07 08:54:46,947 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-07 08:54:48,353 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-07 08:54:48,353 - TaipaPyRouter - WARNING - (4, ' bugs outside patrol radius.')
+2018-08-07 08:55:04,554 - TaipaPyRouter - WARNING - Routes created with collisions.
+2018-08-07 08:55:04,568 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-07 08:55:04,569 - TaipaPyRouter - INFO - End of Router
+2018-08-07 08:55:04,569 - TaipaPyRouter - INFO - 
+2018-08-07 08:55:24,845 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 08:55:24,846 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 08:55:24,846 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-07 08:55:26,621 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-07 08:55:26,621 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-07 08:55:26,621 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-07 08:55:26,621 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-07 08:55:26,621 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-07 08:55:26,621 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-07 08:55:26,621 - TaipaPyRouter - INFO - ('ONLINE', 186)
+2018-08-07 08:55:26,621 - TaipaPyRouter - INFO - ('NOT_PRESENT', 123)
+2018-08-07 08:55:27,881 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-07 08:55:27,882 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-07 08:55:27,883 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-07 08:55:29,245 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-07 08:55:44,592 - TaipaPyRouter - WARNING - Routes created with collisions.
+2018-08-07 08:55:44,609 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-07 08:55:44,610 - TaipaPyRouter - INFO - End of Router
+2018-08-07 08:55:44,610 - TaipaPyRouter - INFO - 
+2018-08-07 08:59:02,300 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 08:59:02,302 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 08:59:02,302 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-07 08:59:03,574 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-07 08:59:03,574 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-07 08:59:03,574 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-07 08:59:03,575 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-07 08:59:03,575 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-07 08:59:03,575 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-07 08:59:03,575 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-07 08:59:03,575 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-07 08:59:04,900 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-07 08:59:04,901 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-07 08:59:04,902 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-07 08:59:06,181 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-07 08:59:14,572 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-07 08:59:14,584 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-07 08:59:14,584 - TaipaPyRouter - INFO - End of Router
+2018-08-07 08:59:14,584 - TaipaPyRouter - INFO - 
+2018-08-07 09:06:28,959 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 09:06:28,961 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 09:06:28,961 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-07 09:06:31,022 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-07 09:06:31,022 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-07 09:06:31,022 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-07 09:06:31,022 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-07 09:06:31,022 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-07 09:06:31,022 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-07 09:06:31,023 - TaipaPyRouter - INFO - ('ONLINE', 309)
+2018-08-07 09:06:32,246 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-07 09:06:32,247 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-07 09:06:32,248 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-07 09:06:33,651 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-07 09:06:56,796 - TaipaPyRouter - WARNING - Routes created with collisions.
+2018-08-07 09:06:56,815 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-07 09:06:56,815 - TaipaPyRouter - INFO - End of Router
+2018-08-07 09:06:56,816 - TaipaPyRouter - INFO - 
+2018-08-07 09:12:09,712 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 09:12:09,714 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 09:12:09,714 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-07 09:13:18,789 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 09:13:18,791 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 09:13:18,791 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-07 09:13:35,299 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 09:13:35,300 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 09:13:35,301 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-07 09:15:20,138 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 09:15:20,140 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 09:15:20,140 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-07 09:15:22,335 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-07 09:15:22,335 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-07 09:15:22,335 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-07 09:15:22,335 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-07 09:15:22,336 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-07 09:15:22,336 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-07 09:15:22,336 - TaipaPyRouter - INFO - ('ONLINE', 309)
+2018-08-07 09:15:23,667 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-07 09:15:23,668 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-07 09:15:23,669 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-07 09:15:25,107 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-07 09:16:07,206 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 09:16:07,208 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 09:16:07,209 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-07 09:16:09,342 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-07 09:16:09,343 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-07 09:16:09,343 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-07 09:16:09,343 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-07 09:16:09,343 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-07 09:16:09,343 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-07 09:16:09,343 - TaipaPyRouter - INFO - ('ONLINE', 309)
+2018-08-07 09:16:10,584 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-07 09:16:10,585 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-07 09:16:10,586 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-07 09:16:11,992 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-07 09:16:22,963 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 09:16:22,965 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 09:16:22,965 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-07 09:16:24,275 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-07 09:16:24,276 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-07 09:16:24,276 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-07 09:16:24,276 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-07 09:16:24,276 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-07 09:16:24,276 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-07 09:16:24,276 - TaipaPyRouter - INFO - ('ONLINE', 42)
+2018-08-07 09:16:24,276 - TaipaPyRouter - INFO - ('NOT_PRESENT', 267)
+2018-08-07 09:16:25,541 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-07 09:16:25,541 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-07 09:16:25,542 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-07 09:16:26,738 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-07 09:16:32,522 - TaipaPyRouter - WARNING - Routes created with collisions.
+2018-08-07 09:16:32,531 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-07 09:16:32,532 - TaipaPyRouter - INFO - End of Router
+2018-08-07 09:16:32,532 - TaipaPyRouter - INFO - 
+2018-08-07 09:18:50,287 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 09:18:50,293 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 09:18:50,293 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-07 09:18:53,265 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-07 09:18:53,265 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-07 09:18:53,265 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-07 09:18:53,266 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-07 09:18:53,266 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-07 09:18:53,267 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-07 09:18:53,267 - TaipaPyRouter - INFO - ('ONLINE', 42)
+2018-08-07 09:18:53,268 - TaipaPyRouter - INFO - ('NOT_PRESENT', 267)
+2018-08-07 09:19:00,355 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-07 09:19:00,356 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-07 09:19:00,358 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-07 09:19:51,213 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-07 09:52:51,971 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 09:52:51,975 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 09:52:51,975 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-07 09:52:54,895 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-07 09:52:54,895 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-07 09:52:54,896 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-07 09:52:54,896 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-07 09:52:54,896 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-07 09:52:54,897 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-07 09:52:54,897 - TaipaPyRouter - INFO - ('ONLINE', 42)
+2018-08-07 09:52:54,898 - TaipaPyRouter - INFO - ('NOT_PRESENT', 267)
+2018-08-07 09:53:35,231 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 09:53:35,235 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 09:53:35,235 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-07 09:53:38,127 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-07 09:53:38,128 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-07 09:53:38,128 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-07 09:53:38,128 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-07 09:53:38,129 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-07 09:53:38,129 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-07 09:53:38,129 - TaipaPyRouter - INFO - ('ONLINE', 42)
+2018-08-07 09:53:38,130 - TaipaPyRouter - INFO - ('NOT_PRESENT', 267)
+2018-08-07 09:53:44,872 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-07 09:53:44,872 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-07 09:53:44,874 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-07 09:53:51,803 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-07 09:56:29,565 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 09:56:29,569 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 09:56:29,570 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-07 09:56:32,524 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-07 09:56:32,524 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-07 09:56:32,524 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-07 09:56:32,525 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-07 09:56:32,525 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-07 09:56:32,526 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-07 09:56:32,526 - TaipaPyRouter - INFO - ('ONLINE', 42)
+2018-08-07 09:56:32,526 - TaipaPyRouter - INFO - ('NOT_PRESENT', 267)
+2018-08-07 09:56:39,364 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-07 09:56:39,365 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-07 09:56:39,367 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-07 09:56:46,050 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-07 09:57:59,540 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 09:57:59,542 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 09:57:59,542 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-07 09:58:00,828 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-07 09:58:00,828 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-07 09:58:00,828 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-07 09:58:00,829 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-07 09:58:00,829 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-07 09:58:00,829 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-07 09:58:00,829 - TaipaPyRouter - INFO - ('ONLINE', 42)
+2018-08-07 09:58:00,829 - TaipaPyRouter - INFO - ('NOT_PRESENT', 267)
+2018-08-07 09:58:02,049 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-07 09:58:02,049 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-07 09:58:02,051 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-07 09:58:03,259 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-07 09:58:13,316 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-07 09:58:13,331 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-07 09:58:13,331 - TaipaPyRouter - INFO - End of Router
+2018-08-07 09:58:13,331 - TaipaPyRouter - INFO - 
+2018-08-07 10:05:44,759 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 10:05:44,761 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 10:05:44,761 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-07 10:05:46,283 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-07 10:05:46,283 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-07 10:05:46,283 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-07 10:05:46,283 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-07 10:05:46,283 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-07 10:05:46,283 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-07 10:05:46,283 - TaipaPyRouter - INFO - ('ONLINE', 132)
+2018-08-07 10:05:46,283 - TaipaPyRouter - INFO - ('NOT_PRESENT', 177)
+2018-08-07 10:05:47,515 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-07 10:05:47,516 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-07 10:05:47,517 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-07 10:05:48,797 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-07 10:10:31,984 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 10:10:31,986 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 10:10:31,986 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-07 10:10:33,238 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-07 10:10:33,238 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-07 10:10:33,238 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-07 10:10:33,238 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-07 10:10:33,238 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-07 10:10:33,238 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-07 10:10:33,238 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-07 10:10:33,239 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-07 10:10:34,490 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-07 10:10:34,491 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-07 10:10:34,492 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-07 10:10:35,759 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-07 10:10:44,210 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-07 10:10:44,221 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-07 10:10:44,221 - TaipaPyRouter - INFO - End of Router
+2018-08-07 10:10:44,221 - TaipaPyRouter - INFO - 
+2018-08-07 15:08:38,122 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 15:10:39,886 - TaipaPyRouter - INFO - Module loading started
+2018-08-07 15:10:39,888 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-07 15:10:39,888 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 09:11:59,266 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 09:11:59,270 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 09:11:59,271 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 09:18:13,401 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 09:18:13,402 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 09:18:13,402 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 09:19:51,672 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 09:19:51,673 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 09:19:51,673 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 09:19:52,266 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 09:19:52,267 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 09:20:32,805 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 09:20:32,806 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 09:20:32,806 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 09:20:34,295 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 09:20:34,296 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 09:21:05,909 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 09:21:05,910 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 09:21:05,910 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 09:21:07,608 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 09:21:07,609 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 10:04:42,422 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 10:04:42,425 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 10:04:42,427 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 10:04:43,213 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 10:04:43,213 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 10:04:43,214 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 10:04:43,214 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 10:04:43,214 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 10:04:43,214 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 10:05:25,839 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 10:05:25,840 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 10:05:25,840 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 10:05:26,564 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 10:05:26,564 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 10:05:26,564 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 10:05:26,564 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 10:05:26,564 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 10:05:26,565 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 10:05:26,565 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-08 10:05:26,565 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-08 10:06:18,472 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 10:06:18,475 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 10:06:18,475 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 10:06:19,375 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 10:06:19,375 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 10:06:19,376 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 10:06:19,376 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 10:06:19,376 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 10:06:19,376 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 10:06:19,376 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-08 10:06:19,376 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-08 10:06:20,948 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-08 10:06:20,948 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-08 10:06:20,950 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-08 10:06:22,435 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-08 10:06:35,638 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 10:06:35,638 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 10:06:35,638 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 10:06:36,243 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 10:06:36,243 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 10:06:36,243 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 10:06:36,244 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 10:06:36,244 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 10:06:36,244 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 10:06:36,244 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-08 10:06:36,244 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-08 10:06:37,544 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-08 10:06:37,544 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-08 10:06:37,546 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-08 10:06:38,845 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-08 10:07:15,531 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 10:07:15,531 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 10:07:15,531 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 10:07:16,159 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 10:07:16,160 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 10:07:16,160 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 10:07:16,160 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 10:07:16,160 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 10:07:16,160 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 10:07:16,160 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-08 10:07:16,160 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-08 10:07:17,426 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-08 10:07:17,426 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-08 10:07:17,427 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-08 10:07:18,718 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-08 10:07:26,694 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-08 10:09:27,360 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 10:09:27,362 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 10:09:27,362 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 10:09:28,830 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 10:09:28,830 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 10:09:28,830 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 10:09:28,830 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 10:09:28,830 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 10:09:28,831 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 10:09:28,831 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-08 10:09:28,831 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-08 10:09:32,813 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-08 10:09:32,813 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-08 10:09:32,816 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-08 10:09:36,970 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-08 10:10:08,607 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-08 10:28:07,713 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 10:28:07,716 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 10:28:07,716 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 10:28:09,149 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 10:28:09,150 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 10:28:09,150 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 10:28:09,150 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 10:28:09,150 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 10:28:09,151 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 10:28:09,151 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-08 10:28:09,151 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-08 10:28:13,329 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-08 10:28:13,330 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-08 10:28:13,331 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-08 10:28:17,603 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-08 10:28:44,587 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-08 11:32:49,072 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 11:32:49,075 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 11:32:49,076 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 11:32:50,602 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 11:32:50,603 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 11:32:50,603 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 11:32:50,603 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 11:32:50,603 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 11:32:50,603 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 11:32:50,604 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-08 11:32:50,604 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-08 11:32:54,613 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-08 11:32:54,614 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-08 11:32:54,616 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-08 11:32:58,575 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-08 11:33:26,855 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-08 11:34:11,483 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 11:34:11,485 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 11:34:11,485 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 11:34:12,923 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 11:34:12,924 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 11:34:12,924 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 11:34:12,924 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 11:34:12,924 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 11:34:12,924 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 11:34:12,924 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-08 11:34:12,925 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-08 11:34:17,093 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-08 11:34:17,094 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-08 11:34:17,095 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-08 11:34:21,181 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-08 11:34:45,551 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-08 11:39:32,271 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 11:39:32,273 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 11:39:32,273 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 11:39:33,909 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 11:39:33,909 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 11:39:33,910 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 11:39:33,910 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 11:39:33,910 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 11:39:33,911 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 11:39:33,911 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-08 11:39:33,911 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-08 11:39:38,580 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-08 11:39:38,580 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-08 11:39:38,583 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-08 11:39:42,672 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-08 11:40:18,443 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-08 12:15:28,012 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 12:15:28,015 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 12:15:28,024 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 12:15:30,299 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 12:15:30,299 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 12:15:30,299 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 12:15:30,299 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 12:15:30,300 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 12:15:30,300 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 12:15:30,300 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-08 12:15:30,300 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-08 12:15:35,519 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-08 12:15:35,519 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-08 12:15:35,521 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-08 12:15:39,665 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-08 12:16:14,296 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-08 12:17:06,858 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 12:17:06,860 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 12:17:06,861 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 12:17:08,445 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 12:17:08,445 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 12:17:08,445 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 12:17:08,446 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 12:17:08,446 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 12:17:08,446 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 12:17:08,446 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-08 12:17:08,447 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-08 12:17:13,127 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-08 12:17:13,128 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-08 12:17:13,130 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-08 12:17:17,459 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-08 12:17:46,806 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-08 12:23:05,640 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 12:23:05,643 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 12:23:05,643 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 12:23:07,270 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 12:23:07,270 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 12:23:07,270 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 12:23:07,271 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 12:23:07,271 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 12:23:07,272 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 12:23:07,272 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-08 12:23:07,273 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-08 12:23:11,949 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-08 12:23:11,949 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-08 12:23:11,951 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-08 12:23:16,685 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-08 12:23:44,950 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-08 12:47:46,077 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 12:47:46,078 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 12:47:46,078 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 12:47:47,600 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 12:47:47,600 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 12:47:47,601 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 12:47:47,601 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 12:47:47,601 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 12:47:47,601 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 12:47:47,601 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-08 12:47:47,602 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-08 12:47:51,900 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-08 12:47:51,900 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-08 12:47:51,903 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-08 12:47:56,094 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-08 12:48:21,135 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-08 12:49:42,227 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 12:49:42,231 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 12:49:42,232 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 12:49:43,800 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 12:49:43,800 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 12:49:43,801 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 12:49:43,801 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 12:49:43,801 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 12:49:43,801 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 12:49:43,801 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-08 12:49:43,802 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-08 12:49:48,253 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-08 12:49:48,254 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-08 12:49:48,256 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-08 12:49:52,654 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-08 12:50:19,449 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-08 13:05:38,457 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 13:05:38,460 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 13:05:38,461 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 13:05:40,437 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 13:05:40,438 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 13:05:40,438 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 13:05:40,438 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 13:05:40,439 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 13:05:40,439 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 13:05:40,439 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-08 13:05:40,440 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-08 13:05:44,867 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-08 13:05:44,868 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-08 13:05:44,872 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-08 13:05:49,700 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-08 13:06:19,687 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-08 13:12:27,360 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 13:12:27,362 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 13:12:27,362 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 13:12:28,880 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 13:12:28,880 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 13:12:28,881 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 13:12:28,881 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 13:12:28,881 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 13:12:28,881 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 13:12:28,881 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-08 13:12:28,881 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-08 13:12:32,847 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-08 13:12:32,848 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-08 13:12:32,849 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-08 13:12:36,872 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-08 13:13:02,815 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-08 13:14:10,628 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 13:14:10,631 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 13:14:10,631 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 13:14:12,131 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 13:14:12,132 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 13:14:12,132 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 13:14:12,133 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 13:14:12,133 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 13:14:12,133 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 13:14:12,134 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-08 13:14:12,134 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-08 13:14:16,313 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-08 13:14:16,314 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-08 13:14:16,315 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-08 13:14:20,689 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-08 13:14:51,093 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-08 13:18:29,267 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 13:18:29,269 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 13:18:29,269 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 13:18:30,859 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 13:18:30,860 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 13:18:30,860 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 13:18:30,860 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 13:18:30,861 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 13:18:30,861 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 13:18:30,861 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-08 13:18:30,862 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-08 13:18:34,923 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-08 13:18:34,924 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-08 13:18:34,926 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-08 13:18:38,956 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-08 13:19:15,840 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-08 13:19:54,136 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-08 13:19:54,138 - TaipaPyRouter - INFO - End of Router
+2018-08-08 13:19:54,139 - TaipaPyRouter - INFO - 
+2018-08-08 13:20:28,026 - TaipaPyRouter - INFO - Module loading started
+2018-08-08 13:20:28,030 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-08 13:20:28,031 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-08 13:20:29,484 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-08 13:20:29,484 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-08 13:20:29,484 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-08 13:20:29,485 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-08 13:20:29,485 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-08 13:20:29,485 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-08 13:20:29,485 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-08 13:20:29,485 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-08 13:20:33,556 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-08 13:20:33,556 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-08 13:20:33,559 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-08 13:20:37,511 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-08 13:21:04,455 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-08 13:21:12,652 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-08 13:21:12,653 - TaipaPyRouter - INFO - End of Router
+2018-08-08 13:21:12,654 - TaipaPyRouter - INFO - 
+2018-08-09 08:14:29,056 - TaipaPyRouter - INFO - Module loading started
+2018-08-09 08:14:29,059 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-08-09 08:14:29,060 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-08-09 08:14:29,786 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-09 08:14:29,787 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-09 08:14:29,787 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-09 08:14:29,787 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-09 08:14:29,787 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-09 08:14:29,787 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-09 08:14:29,787 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-09 08:14:29,787 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-09 08:14:31,086 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-09 08:14:31,087 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-08-09 08:14:31,088 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-08-09 08:14:32,369 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-09 08:14:40,363 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-09 08:14:40,379 - TaipaPyRouter - INFO - File RTile_s2_example.json written.
+2018-08-09 08:14:40,380 - TaipaPyRouter - INFO - End of Router
+2018-08-09 08:14:40,380 - TaipaPyRouter - INFO - 
+2018-08-09 08:20:31,419 - TaipaPyRouter - INFO - Module loading started
+2018-08-09 08:20:31,420 - TaipaPyRouter - INFO - Input filename is jsonTiles_s2/tile3541_field136_config.json
+2018-08-09 08:20:31,420 - TaipaPyRouter - INFO - Output filename is RTile_jsonTiles_s2/tile3541_field136_config.json
+2018-08-09 08:20:31,420 - TaipaPyRouter - ERROR - File jsonTiles_s2/tile3541_field136_config.json not found.
+2018-08-09 08:26:05,634 - TaipaPyRouter - INFO - Module loading started
+2018-08-09 08:26:05,635 - TaipaPyRouter - INFO - Input filename is jsonTiles_s2/tile3541_field136_config.json
+2018-08-09 08:26:05,635 - TaipaPyRouter - INFO - Output filename is RTile_Test.json
+2018-08-09 08:26:05,635 - TaipaPyRouter - ERROR - File jsonTiles_s2/tile3541_field136_config.json not found.
+2018-08-09 08:26:51,865 - TaipaPyRouter - INFO - Module loading started
+2018-08-09 08:26:51,866 - TaipaPyRouter - INFO - Input filename is jsonTiles_s2/tile3757_field170_config.json
+2018-08-09 08:26:51,866 - TaipaPyRouter - INFO - Output filename is RTile_Test.json
+2018-08-09 08:26:51,867 - TaipaPyRouter - ERROR - File jsonTiles_s2/tile3757_field170_config.json not found.
+2018-08-09 08:29:34,944 - TaipaPyRouter - INFO - Module loading started
+2018-08-09 08:29:34,945 - TaipaPyRouter - INFO - Input filename is tile3757_field170_config.json
+2018-08-09 08:29:34,945 - TaipaPyRouter - INFO - Output filename is RTile_Test.json
+2018-08-09 08:29:35,642 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-09 08:29:35,643 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-09 08:29:35,643 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-09 08:29:35,644 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-09 08:29:35,644 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-09 08:29:35,644 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-09 08:29:35,645 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-09 08:29:35,645 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-09 08:29:36,973 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-09 08:29:36,974 - TaipaPyRouter - WARNING - (9, ' bugs outside GFP.')
+2018-08-09 08:29:36,975 - TaipaPyRouter - WARNING - ('Bugs', array([ 88, 147, 232, 284, 291]), ' were removed by having another target too close.')
+2018-08-09 08:29:38,260 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-09 08:29:44,776 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-09 08:29:44,789 - TaipaPyRouter - INFO - File RTile_Test.json written.
+2018-08-09 08:29:44,790 - TaipaPyRouter - INFO - End of Router
+2018-08-09 08:29:44,790 - TaipaPyRouter - INFO - 
+2018-08-09 08:43:24,146 - TaipaPyRouter - INFO - Module loading started
+2018-08-09 08:43:24,147 - TaipaPyRouter - INFO - Input filename is tile3757_field170_config.json
+2018-08-09 08:43:24,148 - TaipaPyRouter - INFO - Output filename is RTile_Test.json
+2018-08-09 08:43:24,937 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-09 08:43:24,938 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-09 08:43:24,938 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-09 08:43:24,938 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-09 08:43:24,938 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-09 08:43:24,938 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-09 08:43:24,938 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-09 08:43:24,938 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-09 08:43:26,354 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-09 08:43:26,355 - TaipaPyRouter - WARNING - (9, ' bugs outside GFP.')
+2018-08-09 08:43:26,356 - TaipaPyRouter - WARNING - ('Bugs', array([ 88, 147, 232, 284, 291]), ' were removed by having another target too close.')
+2018-08-09 08:43:27,781 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-09 08:44:04,627 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-09 08:44:04,668 - TaipaPyRouter - INFO - File RTile_Test.json written.
+2018-08-09 08:44:04,669 - TaipaPyRouter - INFO - End of Router
+2018-08-09 08:44:04,669 - TaipaPyRouter - INFO - 
+2018-08-09 08:51:50,730 - TaipaPyRouter - INFO - Module loading started
+2018-08-09 08:51:50,731 - TaipaPyRouter - INFO - Input filename is tile3757_field170_config.json
+2018-08-09 08:51:50,732 - TaipaPyRouter - INFO - Output filename is RTile_Test.json
+2018-08-09 08:51:51,497 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-09 08:51:51,497 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-09 08:51:51,497 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-09 08:51:51,497 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-09 08:51:51,497 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-09 08:51:51,497 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-09 08:51:51,497 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-09 08:51:51,498 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-09 08:51:52,894 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-09 08:51:52,894 - TaipaPyRouter - WARNING - (9, ' bugs outside GFP.')
+2018-08-09 08:51:52,896 - TaipaPyRouter - WARNING - ('Bugs', array([ 88, 147, 232, 284, 291]), ' were removed by having another target too close.')
+2018-08-09 08:51:54,270 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-09 08:53:10,953 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-09 08:53:10,991 - TaipaPyRouter - INFO - File RTile_Test.json written.
+2018-08-09 08:53:10,992 - TaipaPyRouter - INFO - End of Router
+2018-08-09 08:53:10,993 - TaipaPyRouter - INFO - 
+2018-08-09 08:57:42,753 - TaipaPyRouter - INFO - Module loading started
+2018-08-09 08:57:42,754 - TaipaPyRouter - INFO - Input filename is tile3775_field79_config.json
+2018-08-09 08:57:42,756 - TaipaPyRouter - INFO - Output filename is RTile_Test.json
+2018-08-09 08:57:43,479 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-09 08:57:43,479 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-09 08:57:43,480 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-09 08:57:43,480 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-09 08:57:43,480 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-09 08:57:43,480 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-09 08:57:43,480 - TaipaPyRouter - INFO - ('ONLINE', 32)
+2018-08-09 08:57:43,480 - TaipaPyRouter - INFO - ('NOT_PRESENT', 277)
+2018-08-09 08:57:44,896 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-09 08:57:44,897 - TaipaPyRouter - WARNING - (9, ' bugs outside GFP.')
+2018-08-09 08:57:44,898 - TaipaPyRouter - WARNING - ('Bugs', array([  5, 172, 173, 190, 194, 288]), ' were removed by having another target too close.')
+2018-08-09 08:57:46,474 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-09 08:58:49,474 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-09 08:58:49,521 - TaipaPyRouter - INFO - File RTile_Test.json written.
+2018-08-09 08:58:49,521 - TaipaPyRouter - INFO - End of Router
+2018-08-09 08:58:49,522 - TaipaPyRouter - INFO - 
+2018-08-09 09:08:08,576 - TaipaPyRouter - INFO - Module loading started
+2018-08-09 09:08:08,577 - TaipaPyRouter - INFO - Input filename is tile3775_field79_config.json
+2018-08-09 09:08:08,577 - TaipaPyRouter - INFO - Output filename is RTile_Test.json
+2018-08-09 09:08:10,146 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-09 09:08:10,146 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-09 09:08:10,146 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-09 09:08:10,146 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-09 09:08:10,146 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-09 09:08:10,147 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-09 09:08:10,147 - TaipaPyRouter - INFO - ('ONLINE', 309)
+2018-08-09 09:08:11,532 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-09 09:08:11,532 - TaipaPyRouter - WARNING - (9, ' bugs outside GFP.')
+2018-08-09 09:08:11,534 - TaipaPyRouter - WARNING - ('Bugs', array([  5, 172, 173, 190, 194, 288]), ' were removed by having another target too close.')
+2018-08-09 09:08:13,078 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-09 13:55:43,489 - TaipaPyRouter - INFO - Module loading started
+2018-08-09 13:55:43,494 - TaipaPyRouter - INFO - Input filename is tile3775_field79_config.json
+2018-08-09 13:55:43,496 - TaipaPyRouter - INFO - Output filename is RTile_Test.json
+2018-08-09 13:55:44,362 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-09 13:55:44,362 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-09 13:55:44,362 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-09 13:55:44,362 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-09 13:55:44,362 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-09 13:55:44,363 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-09 13:55:44,363 - TaipaPyRouter - INFO - ('NOT_PRESENT', 309)
+2018-08-09 13:55:45,962 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-09 13:55:45,963 - TaipaPyRouter - WARNING - (9, ' bugs outside GFP.')
+2018-08-09 13:55:45,965 - TaipaPyRouter - WARNING - ('Bugs', array([  5, 172, 173, 190, 194, 288]), ' were removed by having another target too close.')
+2018-08-09 13:57:01,227 - TaipaPyRouter - INFO - Module loading started
+2018-08-09 13:57:01,228 - TaipaPyRouter - INFO - Input filename is tile3775_field79_config.json
+2018-08-09 13:57:01,228 - TaipaPyRouter - INFO - Output filename is RTile_Test.json
+2018-08-09 13:57:03,745 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-09 13:57:03,746 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-09 13:57:03,746 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-09 13:57:03,746 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-09 13:57:03,746 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-09 13:57:03,746 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-09 13:57:03,746 - TaipaPyRouter - INFO - ('ONLINE', 113)
+2018-08-09 13:57:03,747 - TaipaPyRouter - INFO - ('NOT_PRESENT', 196)
+2018-08-09 13:57:06,020 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-09 13:57:06,021 - TaipaPyRouter - WARNING - (9, ' bugs outside GFP.')
+2018-08-09 13:57:06,023 - TaipaPyRouter - WARNING - ('Bugs', array([  5, 172, 173, 190, 194, 288]), ' were removed by having another target too close.')
+2018-08-09 13:57:07,548 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-09 14:18:04,680 - TaipaPyRouter - INFO - Module loading started
+2018-08-09 14:18:04,681 - TaipaPyRouter - INFO - Input filename is tile3775_field79_config.json
+2018-08-09 14:18:04,681 - TaipaPyRouter - INFO - Output filename is RTile_Test.json
+2018-08-09 14:18:05,818 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-09 14:18:05,819 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-09 14:18:05,819 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-09 14:18:05,819 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-09 14:18:05,819 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-09 14:18:05,819 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-09 14:18:05,819 - TaipaPyRouter - INFO - ('ONLINE', 159)
+2018-08-09 14:18:05,819 - TaipaPyRouter - INFO - ('NOT_PRESENT', 150)
+2018-08-09 14:18:07,145 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-09 14:18:07,146 - TaipaPyRouter - WARNING - (9, ' bugs outside GFP.')
+2018-08-09 14:18:07,147 - TaipaPyRouter - WARNING - ('Bugs', array([  5, 172, 173, 190, 194, 288]), ' were removed by having another target too close.')
+2018-08-09 14:18:08,634 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-10 08:30:04,227 - TaipaPyRouter - INFO - Module loading started
+2018-08-10 08:30:04,231 - TaipaPyRouter - INFO - Input filename is tile3497_field1197_config.json
+2018-08-10 08:30:04,232 - TaipaPyRouter - INFO - Output filename is RTile_Test.json
+2018-08-10 08:30:05,568 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-10 08:30:05,569 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-10 08:30:05,569 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-10 08:30:05,569 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-10 08:30:05,569 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-10 08:30:05,569 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-10 08:30:05,569 - TaipaPyRouter - INFO - ('ONLINE', 159)
+2018-08-10 08:30:05,569 - TaipaPyRouter - INFO - ('NOT_PRESENT', 150)
+2018-08-10 08:30:06,903 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-10 08:30:06,904 - TaipaPyRouter - WARNING - (9, ' bugs outside GFP.')
+2018-08-10 08:30:06,905 - TaipaPyRouter - WARNING - ('Bugs', array([ 21,  89, 174, 223, 252]), ' were removed by having another target too close.')
+2018-08-10 08:30:08,509 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-10 08:31:57,372 - TaipaPyRouter - WARNING - Routes created with collisions.
+2018-08-10 08:31:57,416 - TaipaPyRouter - INFO - File RTile_Test.json written.
+2018-08-10 08:31:57,417 - TaipaPyRouter - INFO - End of Router
+2018-08-10 08:31:57,417 - TaipaPyRouter - INFO - 
+2018-08-10 08:33:49,062 - TaipaPyRouter - INFO - Module loading started
+2018-08-10 08:33:49,063 - TaipaPyRouter - INFO - Input filename is tile3485_field1010_config.json
+2018-08-10 08:33:49,063 - TaipaPyRouter - INFO - Output filename is RTile_Test.json
+2018-08-10 08:33:50,167 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-10 08:33:50,168 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-10 08:33:50,168 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-10 08:33:50,168 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-10 08:33:50,168 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-10 08:33:50,168 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-10 08:33:50,169 - TaipaPyRouter - INFO - ('ONLINE', 159)
+2018-08-10 08:33:50,169 - TaipaPyRouter - INFO - ('NOT_PRESENT', 150)
+2018-08-10 08:33:51,336 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-10 08:33:51,336 - TaipaPyRouter - WARNING - (8, ' bugs outside GFP.')
+2018-08-10 08:33:51,337 - TaipaPyRouter - WARNING - ('Bugs', array([ 78, 112, 147, 155, 196, 280, 305]), ' were removed by having another target too close.')
+2018-08-10 08:33:52,703 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-10 08:34:24,908 - TaipaPyRouter - WARNING - Routes created with collisions.
+2018-08-10 08:34:24,934 - TaipaPyRouter - INFO - File RTile_Test.json written.
+2018-08-10 08:34:24,934 - TaipaPyRouter - INFO - End of Router
+2018-08-10 08:34:24,934 - TaipaPyRouter - INFO - 
+2018-08-10 08:36:53,931 - TaipaPyRouter - INFO - Module loading started
+2018-08-10 08:36:53,932 - TaipaPyRouter - INFO - Input filename is tile3486_field540_config.json
+2018-08-10 08:36:53,932 - TaipaPyRouter - INFO - Output filename is RTile_Test.json
+2018-08-10 08:36:55,088 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-10 08:36:55,088 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-10 08:36:55,088 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-10 08:36:55,088 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-10 08:36:55,088 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-10 08:36:55,089 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-10 08:36:55,089 - TaipaPyRouter - INFO - ('ONLINE', 159)
+2018-08-10 08:36:55,089 - TaipaPyRouter - INFO - ('NOT_PRESENT', 150)
+2018-08-10 08:36:57,165 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-10 08:36:57,166 - TaipaPyRouter - WARNING - (7, ' bugs outside GFP.')
+2018-08-10 08:36:57,167 - TaipaPyRouter - WARNING - ('Bugs', array([ 43,  54,  87, 109, 120, 198]), ' were removed by having another target too close.')
+2018-08-10 08:36:59,620 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-10 08:38:22,495 - TaipaPyRouter - WARNING - Routes created with collisions.
+2018-08-10 08:38:22,541 - TaipaPyRouter - INFO - File RTile_Test.json written.
+2018-08-10 08:38:22,541 - TaipaPyRouter - INFO - End of Router
+2018-08-10 08:38:22,541 - TaipaPyRouter - INFO - 
+2018-08-10 09:03:14,315 - TaipaPyRouter - INFO - Module loading started
+2018-08-10 09:03:14,319 - TaipaPyRouter - INFO - Input filename is tile7903_field501_config.json
+2018-08-10 09:03:14,319 - TaipaPyRouter - INFO - Output filename is RTile_Test.json
+2018-08-10 09:03:15,528 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-10 09:03:15,528 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-10 09:03:15,528 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-10 09:03:15,529 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-10 09:03:15,529 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-10 09:03:15,529 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-10 09:03:15,529 - TaipaPyRouter - INFO - ('ONLINE', 159)
+2018-08-10 09:03:15,529 - TaipaPyRouter - INFO - ('NOT_PRESENT', 150)
+2018-08-10 09:03:16,869 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-10 09:03:16,869 - TaipaPyRouter - WARNING - (8, ' bugs outside GFP.')
+2018-08-10 09:03:16,871 - TaipaPyRouter - WARNING - ('Bugs', array([  5,  20,  76,  79, 125, 171, 187, 207, 228, 282]), ' were removed by having another target too close.')
+2018-08-10 09:03:18,367 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-10 09:04:06,542 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-10 09:04:06,589 - TaipaPyRouter - INFO - File RTile_Test.json written.
+2018-08-10 09:04:06,590 - TaipaPyRouter - INFO - End of Router
+2018-08-10 09:04:06,590 - TaipaPyRouter - INFO - 
+2018-08-10 09:05:54,483 - TaipaPyRouter - INFO - Module loading started
+2018-08-10 09:05:54,483 - TaipaPyRouter - INFO - Input filename is tile3775_field79_config.json
+2018-08-10 09:05:54,484 - TaipaPyRouter - INFO - Output filename is RTile_Test.json
+2018-08-10 09:05:55,592 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-10 09:05:55,592 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-10 09:05:55,593 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-10 09:05:55,593 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-10 09:05:55,593 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-10 09:05:55,593 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-10 09:05:55,593 - TaipaPyRouter - INFO - ('ONLINE', 159)
+2018-08-10 09:05:55,594 - TaipaPyRouter - INFO - ('NOT_PRESENT', 150)
+2018-08-10 09:05:56,978 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-10 09:05:56,978 - TaipaPyRouter - WARNING - (9, ' bugs outside GFP.')
+2018-08-10 09:05:56,979 - TaipaPyRouter - WARNING - ('Bugs', array([  5, 172, 173, 190, 194, 288]), ' were removed by having another target too close.')
+2018-08-10 09:05:58,502 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-10 09:35:37,458 - TaipaPyRouter - INFO - Routes created successfully.
+2018-08-10 09:35:37,525 - TaipaPyRouter - INFO - File RTile_Test.json written.
+2018-08-10 09:35:37,525 - TaipaPyRouter - INFO - End of Router
+2018-08-10 09:35:37,525 - TaipaPyRouter - INFO - 
+2018-08-10 09:36:07,156 - TaipaPyRouter - INFO - Module loading started
+2018-08-10 09:36:07,156 - TaipaPyRouter - INFO - Input filename is tile3757_field170_config.json
+2018-08-10 09:36:07,156 - TaipaPyRouter - INFO - Output filename is RTile_Test.json
+2018-08-10 09:36:08,418 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-08-10 09:36:08,418 - TaipaPyRouter - INFO - Bugs Types:
+2018-08-10 09:36:08,418 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-08-10 09:36:08,419 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-08-10 09:36:08,419 - TaipaPyRouter - INFO - ('None', 150)
+2018-08-10 09:36:08,419 - TaipaPyRouter - INFO - Bugs Status:
+2018-08-10 09:36:08,419 - TaipaPyRouter - INFO - ('ONLINE', 159)
+2018-08-10 09:36:08,419 - TaipaPyRouter - INFO - ('NOT_PRESENT', 150)
+2018-08-10 09:36:09,841 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-08-10 09:36:09,841 - TaipaPyRouter - WARNING - (9, ' bugs outside GFP.')
+2018-08-10 09:36:09,843 - TaipaPyRouter - WARNING - ('Bugs', array([ 88, 147, 232, 284, 291]), ' were removed by having another target too close.')
+2018-08-10 09:36:11,518 - TaipaPyRouter - INFO - Validating Target Patrol Radius
+2018-08-10 09:39:30,938 - TaipaPyRouter - WARNING - Routes created with collisions.
+2018-08-10 09:39:30,995 - TaipaPyRouter - INFO - File RTile_Test.json written.
+2018-08-10 09:39:30,996 - TaipaPyRouter - INFO - End of Router
+2018-08-10 09:39:30,996 - TaipaPyRouter - INFO - 
+2018-09-11 13:46:37,948 - TaipaPyRouter - INFO - Module loading started
+2018-09-11 13:52:50,372 - TaipaPyRouter - INFO - Input filename is s2_example.json
+2018-09-11 13:53:28,733 - TaipaPyRouter - INFO - Output filename is RTile_s2_example.json
+2018-09-11 13:58:45,164 - TaipaPyRouter - INFO - Found 309 park positions.
+2018-09-11 14:32:13,774 - TaipaPyRouter - INFO - Bugs Types:
+2018-09-11 14:32:35,115 - TaipaPyRouter - INFO - ('GUIDE', 9)
+2018-09-11 14:32:35,115 - TaipaPyRouter - INFO - ('SCIENCE', 150)
+2018-09-11 14:32:35,115 - TaipaPyRouter - INFO - ('None', 150)
+2018-09-11 14:35:02,993 - TaipaPyRouter - INFO - Bugs Status:
+2018-09-11 14:35:02,993 - TaipaPyRouter - INFO - ('ONLINE', 159)
+2018-09-11 14:35:02,993 - TaipaPyRouter - INFO - ('NOT_PRESENT', 150)
+2018-09-11 14:37:49,173 - TaipaPyRouter - INFO - Initial Validation of Targets
+2018-09-11 14:37:49,173 - TaipaPyRouter - WARNING - (2, ' bugs outside GFP.')
+2018-09-11 14:37:49,177 - TaipaPyRouter - WARNING - ('Bugs', array([ 78,  80, 222, 224, 232, 307]), ' were removed by having another target too close.')
+2018-09-11 14:39:52,034 - TaipaPyRouter - INFO - Validating Target Patrol Radius

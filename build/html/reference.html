@@ -1,0 +1,873 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>TAIPAN Router reference manual &#8212; Taipan Router  documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="TAIPAN Router Manual" href="manual.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="manual.html" title="TAIPAN Router Manual"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Taipan Router  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-taipanPyRouter">
+<span id="taipan-router-reference-manual"></span><h1>TAIPAN Router reference manual<a class="headerlink" href="#module-taipanPyRouter" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="taipanPyRouter.CGroupSolver">
+<em class="property">class </em><code class="descclassname">taipanPyRouter.</code><code class="descname">CGroupSolver</code><span class="sig-paren">(</span><em>CGroup</em>, <em>tickArray</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/taipanPyRouter.html#CGroupSolver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#taipanPyRouter.CGroupSolver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to hold the crossing group solving funcitons.</p>
+<dl class="method">
+<dt id="taipanPyRouter.CGroupSolver.calcCoeffs">
+<code class="descname">calcCoeffs</code><span class="sig-paren">(</span><em>A</em>, <em>B</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/taipanPyRouter.html#CGroupSolver.calcCoeffs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#taipanPyRouter.CGroupSolver.calcCoeffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the collision coefficients.</p>
+<ul class="simple">
+<li>Given 2 ESegments, it returns the coefficients of the collision points.</li>
+<li>If the ESegments are parallel, it returns NaNs</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>A</strong> (<a class="reference internal" href="#taipanPyRouter.ESegment" title="taipanPyRouter.ESegment"><em>ESegment</em></a>) – First segment to compare.</li>
+<li><strong>B</strong> (<a class="reference internal" href="#taipanPyRouter.ESegment" title="taipanPyRouter.ESegment"><em>ESegment</em></a>) – Second segment to compare.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Pair of coefficients</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Tuple</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.CGroupSolver.constructCMatrix">
+<code class="descname">constructCMatrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/taipanPyRouter.html#CGroupSolver.constructCMatrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#taipanPyRouter.CGroupSolver.constructCMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a distance matrix for all segments in the crossing group</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.CGroupSolver.constructESegments">
+<code class="descname">constructESegments</code><span class="sig-paren">(</span><em>XYs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/taipanPyRouter.html#CGroupSolver.constructESegments"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#taipanPyRouter.CGroupSolver.constructESegments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a list of all ESegments in the CGroup.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>XYs</strong> (<em>np.ndarray</em>) – List of coordinates of the end points of each ESegment</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of ESegments</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.CGroupSolver.findMovingSequence">
+<code class="descname">findMovingSequence</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/taipanPyRouter.html#CGroupSolver.findMovingSequence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#taipanPyRouter.CGroupSolver.findMovingSequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Analyses the cost matrix to find the sequence of motion that doesn’t crash.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="taipanPyRouter.ESegment">
+<em class="property">class </em><code class="descclassname">taipanPyRouter.</code><code class="descname">ESegment</code><span class="sig-paren">(</span><em>XYs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/taipanPyRouter.html#ESegment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#taipanPyRouter.ESegment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">shapely.geometry.linestring.LineString</span></code></p>
+<p>Class to extend the existing Linestring class into E(xtended)Segments.</p>
+<p>ESegments provide extra elements that apply to route solving</p>
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.almost_equals">
+<code class="descname">almost_equals</code><span class="sig-paren">(</span><em>other</em>, <em>decimal=6</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.almost_equals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if geometries are equal at all coordinates to a
+specified decimal place</p>
+<p>Refers to approximate coordinate equality, which requires coordinates be
+approximately equal and in the same order for all components of a geometry.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.area">
+<code class="descname">area</code><a class="headerlink" href="#taipanPyRouter.ESegment.area" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unitless area of the geometry (float)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.array_interface">
+<code class="descname">array_interface</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.array_interface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide the Numpy array protocol.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.array_interface_base">
+<code class="descname">array_interface_base</code><a class="headerlink" href="#taipanPyRouter.ESegment.array_interface_base" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.boundary">
+<code class="descname">boundary</code><a class="headerlink" href="#taipanPyRouter.ESegment.boundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a lower dimension geometry that bounds the object</p>
+<p>The boundary of a polygon is a line, the boundary of a line is a
+collection of points. The boundary of a point is an empty (null)
+collection.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.bounds">
+<code class="descname">bounds</code><a class="headerlink" href="#taipanPyRouter.ESegment.bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns minimum bounding region (minx, miny, maxx, maxy)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.buffer">
+<code class="descname">buffer</code><span class="sig-paren">(</span><em>distance</em>, <em>resolution=16</em>, <em>quadsegs=None</em>, <em>cap_style=1</em>, <em>join_style=1</em>, <em>mitre_limit=5.0</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a geometry with an envelope at a distance from the object’s
+envelope</p>
+<p>A negative distance has a “shrink” effect. A zero distance may be used
+to “tidy” a polygon. The resolution of the buffer around each vertex of
+the object increases by increasing the resolution keyword parameter
+or second positional parameter. Note: the use of a <cite>quadsegs</cite> parameter
+is deprecated and will be gone from the next major release.</p>
+<p>The styles of caps are: CAP_STYLE.round (1), CAP_STYLE.flat (2), and
+CAP_STYLE.square (3).</p>
+<p>The styles of joins between offset segments are: JOIN_STYLE.round (1),
+JOIN_STYLE.mitre (2), and JOIN_STYLE.bevel (3).</p>
+<p>The mitre limit ratio is used for very sharp corners. The mitre ratio
+is the ratio of the distance from the corner to the end of the mitred
+offset corner. When two line segments meet at a sharp angle, a miter
+join will extend the original geometry. To prevent unreasonable
+geometry, the mitre limit allows controlling the maximum length of the
+join corner. Corners with a ratio which exceed the limit will be
+beveled.</p>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.wkt</span> <span class="k">import</span> <span class="n">loads</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">loads</span><span class="p">(</span><span class="s1">&#39;POINT (0.0 0.0)&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">area</span>        <span class="c1"># 16-gon approx of a unit radius circle</span>
+<span class="go">3.1365484905459389</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span><span class="o">.</span><span class="n">area</span>   <span class="c1"># 128-gon approximation</span>
+<span class="go">3.1415138011443009</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">area</span>     <span class="c1"># triangle approximation</span>
+<span class="go">3.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">cap_style</span><span class="o">=</span><span class="s1">&#39;square&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+<span class="go">[(1.0, 1.0), (1.0, -1.0), (-1.0, -1.0), (-1.0, 1.0), (1.0, 1.0)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">cap_style</span><span class="o">=</span><span class="s1">&#39;square&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">area</span>
+<span class="go">4.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.centroid">
+<code class="descname">centroid</code><a class="headerlink" href="#taipanPyRouter.ESegment.centroid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the geometric center of the object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.contains">
+<code class="descname">contains</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.contains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if the geometry contains the other, else False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.convex_hull">
+<code class="descname">convex_hull</code><a class="headerlink" href="#taipanPyRouter.ESegment.convex_hull" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Imagine an elastic band stretched around the geometry</em> – that’s a
+convex hull, more or less</p>
+<p>The convex hull of a three member multipoint, for example, is a
+triangular polygon.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.coords">
+<code class="descname">coords</code><a class="headerlink" href="#taipanPyRouter.ESegment.coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access to geometry’s coordinates (CoordinateSequence)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.covers">
+<code class="descname">covers</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.covers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if the geometry covers the other, else False</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.crosses">
+<code class="descname">crosses</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.crosses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if the geometries cross, else False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.ctypes">
+<code class="descname">ctypes</code><a class="headerlink" href="#taipanPyRouter.ESegment.ctypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.difference">
+<code class="descname">difference</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.difference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the difference of the geometries</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.disjoint">
+<code class="descname">disjoint</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.disjoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if geometries are disjoint, else False</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.distance">
+<code class="descname">distance</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unitless distance to other geometry (float)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.empty">
+<code class="descname">empty</code><span class="sig-paren">(</span><em>val=4466994800</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.empty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.envelope">
+<code class="descname">envelope</code><a class="headerlink" href="#taipanPyRouter.ESegment.envelope" title="Permalink to this definition">¶</a></dt>
+<dd><p>A figure that envelopes the geometry</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.equals">
+<code class="descname">equals</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.equals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if geometries are equal, else False</p>
+<p>Refers to point-set equality (or topological equality), and is equivalent to
+(self.within(other) &amp; self.contains(other))</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.equals_exact">
+<code class="descname">equals_exact</code><span class="sig-paren">(</span><em>other</em>, <em>tolerance</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.equals_exact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if geometries are equal to within a specified
+tolerance</p>
+<p>Refers to coordinate equality, which requires coordinates to be equal
+and in the same order for all components of a geometry</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.geom_type">
+<code class="descname">geom_type</code><a class="headerlink" href="#taipanPyRouter.ESegment.geom_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the geometry’s type, such as ‘Point’</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.geometryType">
+<code class="descname">geometryType</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.geometryType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.has_z">
+<code class="descname">has_z</code><a class="headerlink" href="#taipanPyRouter.ESegment.has_z" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the geometry’s coordinate sequence(s) have z values (are
+3-dimensional)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.hausdorff_distance">
+<code class="descname">hausdorff_distance</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.hausdorff_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unitless hausdorff distance to other geometry (float)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.impl">
+<code class="descname">impl</code><em class="property"> = &lt;GEOSImpl object: GEOS C API version (1, 8, 0)&gt;</em><a class="headerlink" href="#taipanPyRouter.ESegment.impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.interpolate">
+<code class="descname">interpolate</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.interpolate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a point at the specified distance along a linear geometry</p>
+<p>If the normalized arg is True, the distance will be interpreted as a
+fraction of the geometry’s length.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.intersection">
+<code class="descname">intersection</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.intersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the intersection of the geometries</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.intersects">
+<code class="descname">intersects</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.intersects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if geometries intersect, else False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.is_closed">
+<code class="descname">is_closed</code><a class="headerlink" href="#taipanPyRouter.ESegment.is_closed" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the geometry is closed, else False</p>
+<p>Applicable only to 1-D geometries.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.is_empty">
+<code class="descname">is_empty</code><a class="headerlink" href="#taipanPyRouter.ESegment.is_empty" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the set of points in this geometry is empty, else False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.is_ring">
+<code class="descname">is_ring</code><a class="headerlink" href="#taipanPyRouter.ESegment.is_ring" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the geometry is a closed ring, else False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.is_simple">
+<code class="descname">is_simple</code><a class="headerlink" href="#taipanPyRouter.ESegment.is_simple" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the geometry is simple, meaning that any self-intersections
+are only at boundary points, else False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.is_valid">
+<code class="descname">is_valid</code><a class="headerlink" href="#taipanPyRouter.ESegment.is_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the geometry is valid (definition depends on sub-class),
+else False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.length">
+<code class="descname">length</code><a class="headerlink" href="#taipanPyRouter.ESegment.length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unitless length of the geometry (float)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.minimum_rotated_rectangle">
+<code class="descname">minimum_rotated_rectangle</code><a class="headerlink" href="#taipanPyRouter.ESegment.minimum_rotated_rectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the general minimum bounding rectangle of
+the geometry. Can possibly be rotated. If the convex hull
+of the object is a degenerate (line or point) this same degenerate
+is returned.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.overlaps">
+<code class="descname">overlaps</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.overlaps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if geometries overlap, else False</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.parallel_offset">
+<code class="descname">parallel_offset</code><span class="sig-paren">(</span><em>distance</em>, <em>side='right'</em>, <em>resolution=16</em>, <em>join_style=1</em>, <em>mitre_limit=5.0</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.parallel_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a LineString or MultiLineString geometry at a distance from
+the object on its right or its left side.</p>
+<p>The side parameter may be ‘left’ or ‘right’ (default is ‘right’). The
+resolution of the buffer around each vertex of the object increases by
+increasing the resolution keyword parameter or third positional
+parameter. Vertices of right hand offset lines will be ordered in
+reverse.</p>
+<p>The join style is for outside corners between line segments. Accepted
+values are JOIN_STYLE.round (1), JOIN_STYLE.mitre (2), and
+JOIN_STYLE.bevel (3).</p>
+<p>The mitre ratio limit is used for very sharp corners. It is the ratio
+of the distance from the corner to the end of the mitred offset corner.
+When two line segments meet at a sharp angle, a miter join will extend
+far beyond the original geometry. To prevent unreasonable geometry, the
+mitre limit allows controlling the maximum length of the join corner.
+Corners with a ratio which exceed the limit will be beveled.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.pointFromCoeff">
+<code class="descname">pointFromCoeff</code><span class="sig-paren">(</span><em>coeff</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/taipanPyRouter.html#ESegment.pointFromCoeff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#taipanPyRouter.ESegment.pointFromCoeff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates a projected point from a given coefficient.</p>
+<p>The resulting point is in the position coeff*length, where length is
+the length of the ESegment.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>coeff</strong> (<em>float</em>) – Distance to the requested point in ESegment lengths. Can be negative.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Position of the point.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Tuple</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.project">
+<code class="descname">project</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the distance along this geometry to a point nearest the
+specified point</p>
+<p>If the normalized arg is True, return the distance normalized to the
+length of the linear geometry.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.relate">
+<code class="descname">relate</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.relate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the DE-9IM intersection matrix for the two geometries
+(string)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.relate_pattern">
+<code class="descname">relate_pattern</code><span class="sig-paren">(</span><em>other</em>, <em>pattern</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.relate_pattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if the DE-9IM string code for the relationship between
+the geometries satisfies the pattern, else False</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.representative_point">
+<code class="descname">representative_point</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.representative_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a point guaranteed to be within the object, cheaply.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.simplify">
+<code class="descname">simplify</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.simplify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a simplified geometry produced by the Douglas-Peucker
+algorithm</p>
+<p>Coordinates of the simplified geometry will be no more than the
+tolerance distance from the original. Unless the topology preserving
+option is used, the algorithm may produce self-intersecting or
+otherwise invalid geometries.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.svg">
+<code class="descname">svg</code><span class="sig-paren">(</span><em>scale_factor=1.0</em>, <em>stroke_color=None</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.svg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns SVG polyline element for the LineString geometry.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scale_factor</strong> (<em>float</em>) – Multiplication factor for the SVG stroke-width.  Default is 1.</li>
+<li><strong>stroke_color</strong> (<em>str</em><em>, </em><em>optional</em>) – Hex string for stroke color. Default is to use “#66cc99” if
+geometry is valid, and “#ff3333” if invalid.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.symmetric_difference">
+<code class="descname">symmetric_difference</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.symmetric_difference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the symmetric difference of the geometries
+(Shapely geometry)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.to_wkb">
+<code class="descname">to_wkb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.to_wkb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.to_wkt">
+<code class="descname">to_wkt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.to_wkt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.touches">
+<code class="descname">touches</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.touches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if geometries touch, else False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.type">
+<code class="descname">type</code><a class="headerlink" href="#taipanPyRouter.ESegment.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.union">
+<code class="descname">union</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.union" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the union of the geometries (Shapely geometry)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="taipanPyRouter.ESegment.within">
+<code class="descname">within</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#taipanPyRouter.ESegment.within" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if geometry is within the other, else False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.wkb">
+<code class="descname">wkb</code><a class="headerlink" href="#taipanPyRouter.ESegment.wkb" title="Permalink to this definition">¶</a></dt>
+<dd><p>WKB representation of the geometry</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.wkb_hex">
+<code class="descname">wkb_hex</code><a class="headerlink" href="#taipanPyRouter.ESegment.wkb_hex" title="Permalink to this definition">¶</a></dt>
+<dd><p>WKB hex representation of the geometry</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.wkt">
+<code class="descname">wkt</code><a class="headerlink" href="#taipanPyRouter.ESegment.wkt" title="Permalink to this definition">¶</a></dt>
+<dd><p>WKT representation of the geometry</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="taipanPyRouter.ESegment.xy">
+<code class="descname">xy</code><a class="headerlink" href="#taipanPyRouter.ESegment.xy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Separate arrays of X and Y coordinate values</p>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">(((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span><span class="o">.</span><span class="n">xy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">[0.0, 1.0]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="go">[0.0, 1.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="taipanPyRouter.checkForCollisions">
+<code class="descclassname">taipanPyRouter.</code><code class="descname">checkForCollisions</code><span class="sig-paren">(</span><em>tickArray</em>, <em>bugStatus</em>, <em>booPrint=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/taipanPyRouter.html#checkForCollisions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#taipanPyRouter.checkForCollisions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Looks for collisions in the created tick array.</p>
+<ul class="simple">
+<li>Steps through the tickArray 1 tick at the time.</li>
+<li>Tries to re-create the crossing groups to look for crossings</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tickArray</strong> (<em>np.ndarray</em>) – Array with the routing solution</li>
+<li><strong>bugStatus</strong> (<em>np.ndarray</em>) – Status of the bugs</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if collisions found.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="taipanPyRouter.checkValidTargets">
+<code class="descclassname">taipanPyRouter.</code><code class="descname">checkValidTargets</code><span class="sig-paren">(</span><em>parkPos</em>, <em>bugsTargetXY</em>, <em>bugStatus</em>, <em>bugRouting</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/taipanPyRouter.html#checkValidTargets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#taipanPyRouter.checkValidTargets" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Checks that targets are:</dt>
+<dd><ul class="first last simple">
+<li>inside GFP</li>
+<li>inside patrol radius</li>
+<li>far enough from eachother</li>
+<li>far from static bugs</li>
+</ul>
+</dd>
+</dl>
+<p>Updates bugStatus accordingly</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parkPos</strong> – array with the starting points</li>
+<li><strong>bugsTargetXY</strong> – array with the end points</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="taipanPyRouter.consolidateCGroups">
+<code class="descclassname">taipanPyRouter.</code><code class="descname">consolidateCGroups</code><span class="sig-paren">(</span><em>crossingBugs</em>, <em>tickArray</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/taipanPyRouter.html#consolidateCGroups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#taipanPyRouter.consolidateCGroups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes all pairs that collide and groups them assigning a unique ID.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>crossingBugs</strong> – np.ndarray Collection of pairs of crossing bugs.</li>
+<li><strong>tickArray</strong> – np.ndarray [lemoID-1, tick, coords]</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="taipanPyRouter.doRoutes">
+<code class="descclassname">taipanPyRouter.</code><code class="descname">doRoutes</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/taipanPyRouter.html#doRoutes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#taipanPyRouter.doRoutes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="taipanPyRouter.findCrossingGroups">
+<code class="descclassname">taipanPyRouter.</code><code class="descname">findCrossingGroups</code><span class="sig-paren">(</span><em>tickArray</em>, <em>bugStatus</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/taipanPyRouter.html#findCrossingGroups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#taipanPyRouter.findCrossingGroups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identify crossing groups within the direct paths</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tickArray</strong> – array with the starting and ending points</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">np.ndarray Collection of pairs of crossing bugs.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">crossingBugs</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="taipanPyRouter.initialiseTickArray">
+<code class="descclassname">taipanPyRouter.</code><code class="descname">initialiseTickArray</code><span class="sig-paren">(</span><em>parkPos</em>, <em>bugsTargetXY</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/taipanPyRouter.html#initialiseTickArray"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#taipanPyRouter.initialiseTickArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new tick array with 2 only ticks (direct path)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>parkPos</strong> – array with the starting points</li>
+<li><strong>bugsTargetXY</strong> – array with the end points</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">3D np.array [lemoID-1, tick, coords]</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tickArray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="taipanPyRouter.loadParkPosJSON">
+<code class="descclassname">taipanPyRouter.</code><code class="descname">loadParkPosJSON</code><span class="sig-paren">(</span><em>filename='locationProperties.json'</em>, <em>folder='.'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/taipanPyRouter.html#loadParkPosJSON"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#taipanPyRouter.loadParkPosJSON" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the park position file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> (<em>str</em>) – The name of the input file</li>
+<li><strong>folder</strong> (<em>str</em>) – The location of the input file</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">2D - [[x],[y]] parked positions coordinates indexed by LemoId-1
+bugStatus (np.ndarray) : 1D [status] bugStatus indexed by LemoId-1
+bugTypes (np.ndarray) : 1D [types] bugTypes indexed by LemoId-1</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">parkPos (np.ndarray)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Currently hardcoded array size to 309 bugs</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="taipanPyRouter.openS2JSONTile">
+<code class="descclassname">taipanPyRouter.</code><code class="descname">openS2JSONTile</code><span class="sig-paren">(</span><em>fileName</em>, <em>folder='./jsonTiles_s2'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/taipanPyRouter.html#openS2JSONTile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#taipanPyRouter.openS2JSONTile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the JSON file containing the target information (S2)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> (<em>str</em>) – The name of the input file</li>
+<li><strong>folder</strong> (<em>str</em>) – The location of the input file</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Bugs requested position [[x,y]] indexed by LemoId-1</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bugsXY (np.ndarray)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Currently hardcoded array size to 309,2</li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="taipanPyRouter.optimiseAllocation">
+<code class="descclassname">taipanPyRouter.</code><code class="descname">optimiseAllocation</code><span class="sig-paren">(</span><em>parkPos</em>, <em>bugStatus</em>, <em>bugTypes</em>, <em>bugsTargetXY</em>, <em>bugTargetTypes</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/taipanPyRouter.html#optimiseAllocation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#taipanPyRouter.optimiseAllocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimise the cost matrix of distances between a set of parked positions and set of targets.</p>
+<ul class="simple">
+<li>It assigns the best target positions based on minimum combined distance</li>
+<li>Only the positions in parkPos that can be allocated have actual values, the rest of the values are NaNs.</li>
+<li>This process allows the code to segment the allocation by fibre type</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>parkPos</strong> (<em>np.ndarray</em>) – Park position for all starbugs</li>
+<li><strong>bugsTargetXY</strong> (<em>np.ndarray</em>) – Target positions to be allocated</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Array of same shape of parkPos with the new allocations</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">newTargetsAlloc (np.ndarray)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="taipanPyRouter.shiftTickArray">
+<code class="descclassname">taipanPyRouter.</code><code class="descname">shiftTickArray</code><span class="sig-paren">(</span><em>movSeq</em>, <em>tickArray</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/taipanPyRouter.html#shiftTickArray"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#taipanPyRouter.shiftTickArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a sequence of bugIds, it creates the ticks to move bugs sequentially</p>
+<ul class="simple">
+<li>It reshapes tickArray as needed. [nBugs, len(movSeq)+1, 2]</li>
+<li>It cascades the motion of the corresponding bugs sequentially as per movSeq order</li>
+<li>It completes preceding ticks with initial tick pos for movSeq bugs</li>
+<li>It adds target position to all tick following motion</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>movSeq</strong> (<em>np.ndarray</em>) – List of bugIds to be moved in sequential order.</li>
+<li><strong>tickArray</strong> (<em>np.ndarray</em>) – Tick array to be appended with sequential motion</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Shifted TickArray.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="taipanPyRouter.writeOuputFile">
+<code class="descclassname">taipanPyRouter.</code><code class="descname">writeOuputFile</code><span class="sig-paren">(</span><em>S2FileName</em>, <em>S3FileName</em>, <em>tickArray</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/taipanPyRouter.html#writeOuputFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#taipanPyRouter.writeOuputFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes an RTile (S3) from a tickArray</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>S2FileName</strong> (<em>string</em>) – Input XYTile</li>
+<li><strong>S3FileName</strong> (<em>string</em>) – Output RTile</li>
+<li><strong>tickArray</strong> (<em>np.ndarray</em>) – routing ticks array</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="manual.html"
+                        title="previous chapter">TAIPAN Router Manual</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/reference.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="manual.html" title="TAIPAN Router Manual"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Taipan Router  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Carlos Bacigalupo.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+    </div>
+  </body>
+</html>
